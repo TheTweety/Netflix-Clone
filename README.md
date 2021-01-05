@@ -1,44 +1,9 @@
-# Getting Started #
+## Building Netflix from Scratch Using React (Custom Hooks, Context, Portals), Firebase, Compound & Styled Components (10 Hour Tutorial Here: https://www.youtube.com/watch?v=x_EEwGe-a9o)
 
-These steps will get this sample application running for you using DigitalOcean.
+This application (a Netflix clone) was built using React (Custom Hooks, Context), Firebase & Styled Components. I have built the following pages within this application: sign in, sign up, browse & lastly the homepage. There are four different pages, some using protected routes with auth listeners. Firebase firestore handles all the data and that data is retrieved using a custom hook; authentication is used on all pages, which is handled by Firebase as well.
 
-**Note: Following these steps will result in charges for the use of DigitalOcean services**
+I used compound components (just a design pattern) to build my components, and there's over 10 examples as to how these are used. The styling is all handled via styled components. Using compound components made my actual dumb components really easy to test.
 
-## Requirements
+Subscribe to my YouTube channel here: http://bit.ly/CognitiveSurge where I build projects like this! And don't forget, you can contribute to this project (highly encouraged!).
 
-* You need a DigitalOcean account. If you don't already have one, you can sign up at https://cloud.digitalocean.com/registrations/new
-    
-## Forking the Sample App Source Code
-
-To use all the features of App Platform, you need to be running against your own copy of this application. To make a copy, click the Fork button above and follow the on-screen instructions. In this case, you'll be forking this repo as a starting point for your own app (see [Github documentation](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) to learn more about forking repos.
-
-After forking the repo, you should now be viewing this README in your own github org (e.g. `https://github.com/<your-org>/sample-vuejs`)
-
-**Note:** You can skip forking this repo and select the "Vue.js" sample from the app creation page, however do notice that certain features will be disabled.
-
-## Deploying the App ##
-
-Click this button to deploy the app to the DigitalOcean App Platform.
-
- [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/digitalocean/sample-vuejs/tree/main)
- 
-## Making Changes to Your App ##
-
-As long as you left the default Autodeploy option enabled when you first launched this app, you can now make code changes and see them automatically reflected in your live application. During these automatic deployments, your application will never pause or stop serving request because the App Platform offers zero-downtime deployments.
-
-## Learn More ##
-
-You can learn more about the App Platform and how to manage and update your application at https://www.digitalocean.com/docs/apps/.
-
-
-## Deleting the App #
-
-When you no longer need this sample application running live, you can delete it by following these steps:
-1. Visit the Apps control panel at https://cloud.digitalocean.com/apps
-1. Navigate to the sample-vuejs app
-1. Choose "Settings"->"Destroy"
-
-This will delete the app and destroy any underlying DigitalOcean resources
-
-**Note: If you don't delete your app, charges for the use of DigitalOcean services will continue to accrue.**
-
+![Preview](netflix-preview.png?raw=true)
