@@ -2,7 +2,7 @@
 <section id="iq-upcoming-movie">
     <b-container>
         <b-row>
-            <b-col sm="12" class="overflow-hidden">
+            <b-col sm="12">
                 <div class="iq-main-header d-flex align-items-center justify-content-between">
                     <h4 class="main-title">Best Bengali Movies</h4>
                     <div class="d-flex slick-aerrow-block">

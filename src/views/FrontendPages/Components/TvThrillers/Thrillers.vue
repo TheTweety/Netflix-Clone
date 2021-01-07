@@ -2,7 +2,7 @@
 <section id="iq-trending" class="s-margin">
   <b-container fluid>
     <b-row>
-      <b-col sm="12" class="overflow-hidden">
+      <b-col sm="12" >
           <div class="iq-main-header d-flex align-items-center justify-content-between">
             <h4 class="main-title" v-b-tooltip.hover title="View All">
             <router-link :to="{ name: 'landing-page.show-category' }" class="text-white">TV Thrillers</router-link>

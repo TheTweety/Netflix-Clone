@@ -1,8 +1,9 @@
 <template>
 <section id="home" class="iq-main-slider p-0">
+  <div class="slider m-0 p-0"></div>
   <Slick id="home-slider" class="slider m-0 p-0" :option="homeSliderOption">
-    <div class="slide slick-bg s-bg-1" v-for="(data,index) in sliderData" :key="index">
-      <b-container fluid class="position-relative h-100">
+    <div class="slide slick-bg s-bg-1" :key="0">
+      <!--b-container fluid class="position-relative h-100">
         <div class="slider-inner h-100">
             <b-row class="align-items-center  h-100">
               <b-col xl="6" lg="12" md="12">
@@ -42,15 +43,9 @@
               </router-link>
             </div>
         </div>
-      </b-container>
+      </b-container-->
     </div>
   </Slick>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44px" height="44px" id="circle"
-        fill="none" stroke="currentColor">
-        <circle r="20" cy="22" cx="22" id="test"></circle>
-    </symbol>
-  </svg>
 </section>
 </template>
 <script>

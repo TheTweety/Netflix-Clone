@@ -3,7 +3,7 @@
         <b-container fluid >
             <div class="block-space">
                 <b-row>
-                    <b-col sm="12" class="overflow-hidden">
+                    <b-col sm="12">
                         <div class="iq-main-header d-flex align-items-center justify-content-between">
                         <h4 class="main-title">Latest Episodes</h4>
                        <router-link :to="{ name: 'landing-page.show-single' }" class="text-primary">View all</router-link>

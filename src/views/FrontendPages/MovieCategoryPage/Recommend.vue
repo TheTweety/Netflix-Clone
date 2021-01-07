@@ -2,7 +2,7 @@
 <section id="iq-suggestede">
     <b-container>
         <b-row>
-            <b-col sm="12" class="overflow-hidden">
+            <b-col sm="12">
                 <div class="iq-main-header d-flex align-items-center justify-content-between">
                     <h4 class="main-title">Movies We Recommend</h4>
                     <div class="d-flex slick-aerrow-block">
