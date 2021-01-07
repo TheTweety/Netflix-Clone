@@ -529,6 +529,12 @@ const landingPageRoutes = (prop) => [
     component: CategoryDetail
   },
   {
+    path: '/category-detail/:videoId',
+    name: prop + '.category-detail-id',
+    meta: { auth: true, name: 'Category Details' },
+    component: CategoryDetail
+  },
+  {
     path: '/movie-category',
     name: prop + '.movie-category',
     meta: { auth: true, name: 'Movie Category', movieslider: 'true' },

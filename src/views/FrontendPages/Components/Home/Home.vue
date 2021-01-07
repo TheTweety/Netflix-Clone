@@ -19,14 +19,15 @@
                   </div>
                   <p data-animation-in="fadeInUp" data-delay-in="1.2">{{data.text}}</p>
                   <div class="d-flex align-items-center r-mb-23" data-animation-in="fadeInUp" data-delay-in="1.2">
-                    <router-link :to="{ name: 'landing-page.category-detail' }" class="btn btn-hover"><i class="fa fa-play mr-2"
+                    <router-link :to="{ name: 'landing-page.category-detail' , params: { videoId: '2' } }" class="btn btn-hover"><i class="fa fa-play mr-2"
                         aria-hidden="true"></i>Play Now</router-link>
                     <router-link :to="{ name: 'landing-page.category-detail' }" class="btn btn-link">More details</router-link>
                   </div>
               </b-col>
             </b-row>
             <div class="trailor-video">
-              <a href="../../../assets/video/trailer.mp4" class="video-open playbtn">
+              <router-link :to="{ name: 'landing-page.category-detail', params: { videoId: '2' } }">
+                <a href="../../../assets/video/trailer.mp4" class="video-open playbtn">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     x="0px" y="0px" width="80px" height="80px" viewBox="0 0 213.7 213.7"
                     enable-background="new 0 0 213.7 213.7" xml:space="preserve">
@@ -38,6 +39,7 @@
                   </svg>
                   <span class="w-trailor">Watch Trailer</span>
               </a>
+              </router-link>
             </div>
         </div>
       </b-container>

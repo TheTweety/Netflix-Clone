@@ -11,6 +11,9 @@ export default {
   components: {
   },
   mounted () {
+    if ('videoId' in this.$route.params) {
+      console.log(this.$route.params.videoId)
+    }
   },
   data () {
     return {

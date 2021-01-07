@@ -129,7 +129,7 @@
        <Home id="home" v-if="this.$route.meta.slider === 'true'"/>
        <Slider v-if="this.$route.meta.category" />
        <MovieSlider v-if="this.$route.meta.movieslider"/>
-        <BannerVideo v-if="this.$route.name == 'landing-page.movie-detail' || this.$route.name == 'landing-page.category-detail'"  />
+        <BannerVideo v-if="this.$route.name == 'landing-page.movie-detail' || this.$route.name == 'landing-page.category-detail'  || this.$route.name == 'landing-page.category-detail-id'"  />
         <Banner v-if="this.$route.name == 'landing-page.show-single'"/>
         <div :class="this.$route.meta.mainClass == '' ? '' : 'main-content'">
             <transition name="router-anim" :enter-active-class="`animated ${animated.enter}`" mode="out-in"
