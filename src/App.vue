@@ -1,18 +1,23 @@
 <template>
-  <router-view/>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 <script>
-import { core } from './config/pluginInit'
-
 export default {
-  name: 'App',
-  components: {
-  },
-  mounted () {
-    core.mainIndex()
-  }
-}
+  name: "App"
+};
 </script>
-<style lang="scss">
-  @import "assets/scss/style.scss";
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #141414;
+  height: 100vh;
+}
 </style>

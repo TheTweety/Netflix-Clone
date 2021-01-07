@@ -1,24 +1,24 @@
-import '@babel/polyfill'
-import Vue from 'vue'
-import 'mutationobserver-shim'
-import './Utils/fliter'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import Raphael from 'raphael/raphael'
-import './plugins'
-import './registerServiceWorker'
-import i18n from './i18n'
-import './directives'
-global.Raphael = Raphael
+import Vue from "vue";
+import App from "./App.vue";
 
-Vue.config.productionTip = false
+import "vue-awesome/icons/flag";
+import "vue-awesome/icons";
+import router from "./router";
+import VueYoutube from "vue-youtube";
+import VueToast from "vue-toast-notification";
+import "vue-toast-notification/dist/index.css";
 
-const vm = new Vue({
+Vue.use(VueToast);
+Vue.use(VueYoutube);
+
+import Vuex from "vuex";
+Vue.use(Vuex);
+
+import store from "./store";
+
+Vue.config.productionTip = false;
+new Vue({
   router,
   store,
-  i18n,
   render: h => h(App)
-}).$mount('#app')
-
-window.vm = vm
+}).$mount("#app");
