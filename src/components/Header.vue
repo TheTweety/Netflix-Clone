@@ -5,7 +5,6 @@
       <ul>
         <li id="selections">
           <a id="navigate">
-            Navigation
             <v-icon name="sort-down" scale="1" color="#e5e5e5" />
           </a>
           <ul class="dropdown">
