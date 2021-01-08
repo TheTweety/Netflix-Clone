@@ -139,5 +139,13 @@ export default {
     margin-bottom: 5px;
     margin-top: 5px;
   }
+  .VueCarousel-navigation-button[data-v-453ad8cd]{
+    color: transparent !important;
+    outline: none !important;
+  }
+  .VueCarousel-navigation-button[data-v-453ad8cd]:hover {
+    color: transparent !important;
+    outline: none !important; 
+  }
 }
 </style>
