@@ -118,7 +118,7 @@ export default {
   transform: scale(1.1);
   cursor: pointer;
 }
-.VueCarousel-navigation-button[data-v-453ad8cd] {
+.VueCarousel-navigation-button[data-v-453ad8cd]{
   color: transparent !important;
   outline: none !important;
 }

@@ -14,7 +14,7 @@
             <li>
               <a>Most Recent</a>
             </li>
-            <li v-on:click="NavigateMyList">
+            <li v-on:hover="NavigateMyList">
               <a>My List</a>
             </li>
           </ul>
@@ -22,7 +22,7 @@
         <li class="items" v-on:click="NavigateMain" >Series</li>
         <li class="items">Film</li>
         <li class="items">My Recent</li>
-        <li class="items" v-on:click="NavigateMyList">My list</li>
+        <li class="items" v-on:hover="NavigateMyList">My list</li>
         <li></li>
       </ul>
     </nav>
