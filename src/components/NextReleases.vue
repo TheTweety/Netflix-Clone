@@ -38,8 +38,8 @@ export default {
 <style >
 .nextReleasesContainer {
   width: 100%;
-  height: 900px;
-  position: revert;
+  height: 650px;
+  position: relative;
   background: #1414147e;
   display: flex;
   align-items: center;
@@ -57,8 +57,6 @@ export default {
   width: 100%;
 }
 .containerReleases {
-  position: relative;
-  top: 100px;
   width: 500px;
   margin-left: 40px;
 }
