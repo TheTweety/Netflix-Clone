@@ -1,17 +1,17 @@
 <template>
   <div class="nextReleasesContainer">
     <div class="videoContainer">
-      <video autoplay muted loop src="../assets/video.mp4"></video>
+      <video ref="videoTray" autoplay muted loop src="../assets/video.mp4"></video>
     </div>
 
-    <div class="containerReleases">
+    <div v-if="!isHidden" class="containerReleases">
       <h1>Bill Gates</h1>
       <p>
         Bill Gates fala sobre a missão de vida ou morte para melhorar as
         condições de saneamento no mundo em desenvolvimento. E suas irmãs
         relembra a infância com ele.
       </p>
-      <button id="buttonPlay">
+      <button id="buttonPlay" v-on:click="toggle">
         <v-icon name="play" scale="1" id="iconMain" color="#e5e5e5" />
         <span>Play</span>
       </button>
@@ -27,8 +27,17 @@
 import Icon from "vue-awesome/components/Icon";
 export default {
   name: "NextRealeses",
+  methods: {
+    toggle() {
+      var vid = this.$refs.videoTray
+      vid.muted = !vid.muted
+      this.isHidden = !this.isHidden
+    }
+  },
   data() {
-    return {};
+    return {
+      isHidden: false
+    };
   },
   components: {
     "v-icon": Icon
