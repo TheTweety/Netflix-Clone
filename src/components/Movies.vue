@@ -131,8 +131,8 @@ export default {
 
 @media only screen and (max-width: 599px) {
   #imagemPosterSlide {
-    height: 150px;
-    width: 100px;
+    height: 250px;
+    width: 160px;
   }
   #newMovies h1 {
     font-size: 15px;
@@ -143,6 +143,7 @@ export default {
     color: transparent !important;
     outline: none !important;
   }
+
   .VueCarousel-navigation-button[data-v-453ad8cd]:hover {
     color: transparent !important;
     outline: none !important; 

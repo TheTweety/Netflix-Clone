@@ -118,6 +118,7 @@ export default {
   .nextReleasesContainer {
     height: 50vh;
   }
+  
 }
 @media only screen and (max-width: 790px) {
   .containerReleases h1 {
@@ -139,12 +140,8 @@ export default {
   .containerReleases p {
     font-size: 13px;
   }
-
-  #buttonPlay {
-    width: 120px;
-  }
-  #buttonInfo {
-    width: 170px;
+  .nextReleasesContainer{
+    display: none;
   }
 }
 @media only screen and (max-width: 470px) {
@@ -158,13 +155,6 @@ export default {
 
   .containerReleases p {
     font-size: 11px;
-  }
-
-  #buttonPlay {
-    font-size: 12px;
-  }
-  #buttonInfo {
-    font-size: 12px;
   }
   .nextReleasesContainer {
     height: 33vh;
@@ -184,13 +174,8 @@ export default {
   button span {
     padding-bottom: 300px;
   }
-  #buttonPlay {
-    font-size: 7px;
-    width: 70px;
-  }
-  #buttonInfo {
-    font-size: 7px;
-    width: 90px;
+  .nextReleasesContainer {
+    height: 33vh;
   }
 }
 </style>
