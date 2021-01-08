@@ -4,9 +4,6 @@
     <nav role="navigation">
       <ul>
         <li id="selections">
-          <a id="navigate">
-            <v-icon name="sort-down" scale="1" color="#e5e5e5" />
-          </a>
           <ul class="dropdown">
             <li v-on:click="NavigateMain">
               <a>Films</a>
