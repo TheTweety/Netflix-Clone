@@ -47,8 +47,8 @@ export default {
 <style >
 .nextReleasesContainer {
   width: 100%;
-  height: 800px;
-  position: relative;
+  height: 700px;
+  position: revert;
   background: #1414147e;
   display: flex;
   align-items: center;
@@ -74,7 +74,6 @@ export default {
   text-shadow: black 0.1em 0.1em 0.2em;
   font-size: 50px;
   font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 30px;
   position: relative;
 }
 .containerReleases p {
@@ -132,6 +131,35 @@ export default {
   .containerReleases p {
     font-size: 13px;
   }
+  .containerReleases button {
+    border: none;
+    background: transparent;
+    color: #e9e9e9;
+    font-weight: bold;
+    text-align: center;
+  }
+  #buttonPlay {
+  width: 200px;
+  height: 40px;
+  position: relative;
+    top: -34px;
+    left: -72px;
+}
+  #buttonInfo {
+    width: 200px;
+    height: 40px;
+    position: relative;
+    top: -73px;
+    left: 30px;
+  }
+  .containerReleases button:hover {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+.containerReleases button span {
+  padding-left: 10px;
+}
 }
 @media only screen and (max-width: 599px) {
   .containerReleases {
@@ -140,9 +168,7 @@ export default {
   .containerReleases p {
     font-size: 13px;
   }
-  .nextReleasesContainer{
-    display: none;
-  }
+  
 }
 @media only screen and (max-width: 470px) {
   .containerReleases {

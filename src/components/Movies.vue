@@ -81,6 +81,8 @@ export default {
   height: 100%;
   text-align: center;
   margin: auto;
+  position: relative;
+  top: -120px;
 }
 #buttonNexts {
   color: #f1f;

@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
     <NextReleases />
-    <Movies typeMovie="s=avengers" typeDescription="Popular on Netflix" />
+    <Movies typeMovie="s=avengers" typeDescription="" />
     <Movies typeMovie="s=harry" typeDescription="Recomended" />
     <Movies typeMovie="s=fast" typeDescription="Action" />
     <Movies typeMovie="s=super" typeDescription="Adventure" />
