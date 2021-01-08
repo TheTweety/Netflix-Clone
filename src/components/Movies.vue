@@ -118,9 +118,14 @@ export default {
   transform: scale(1.1);
   cursor: pointer;
 }
-.VueCarousel-navigation-button[data-v-453ad8cd] {
-  color: #e9e9e9 !important;
+.VueCarousel-navigation-button[data-v-453ad8cd]{
+  color: transparent !important;
   outline: none !important;
+}
+.VueCarousel-navigation-button[data-v-453ad8cd]:hover {
+  color: red !important;
+  outline: none !important;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 599px) {
