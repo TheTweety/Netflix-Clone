@@ -5,7 +5,8 @@
       <div v-show="showLoading" id="loadingMovie">
         <Spinner />
       </div>
-      <carousel
+      
+      <!--carousel
         :per-page="7"
         :navigate-to="0"
         :mouse-drag="true"
@@ -22,13 +23,20 @@
             <img :src="movie.Poster" id="imagemPosterSlide" />
           </div>
         </slide>
-      </carousel>
+      </carousel-->
+
+    <VueSlickCarousel  id="movieDiv" v-if="movies!=undefined && movies.length>0" v-bind="slickOptions">
+          <div v-for="(movie,i) in movies" :key="i" >
+             <img :src="movie.Poster" id="imagemPosterSlide" />
+          </div>
+    </VueSlickCarousel>
     </div>
   </div>
 </template>
 
 <script>
-import { Carousel, Slide } from "vue-carousel";
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import Spinner from "../components/Spinner";
 import { Movies } from "../services/api";
 
@@ -39,13 +47,22 @@ export default {
     return {
       movies: [],
       showLoading: true,
-      paginationButtons: false
+      paginationButtons: false,
+      slickOptions: {
+        infinite: true,
+        slidesToShow: 7,
+        mousedrag:true,
+        slidesToScroll: 7,
+        touchThreshold: 5,
+        lazyLoad:"ondemand",
+        adaptiveHeight:true,
+        arrows:false
+      }
     };
   },
   props: ["typeMovie", "typeDescription"],
   components: {
-    Carousel,
-    Slide,
+    VueSlickCarousel,
     Spinner
   },
   async mounted() {
@@ -70,6 +87,12 @@ export default {
 };
 </script>
 <style>
+.img-wrapper img {
+  margin: auto;
+  width: 200px;
+  height: 100px;
+  background-image: linear-gradient(gray 100%, transparent 0);
+} 
 #slide {
   width: 90%;
   height: 100%;
@@ -81,8 +104,6 @@ export default {
   height: 100%;
   text-align: center;
   margin: auto;
-  position: relative;
-  top: -120px;
 }
 #buttonNexts {
   color: #f1f;
@@ -99,6 +120,7 @@ export default {
   justify-content: flex-start;
   align-items: center;
 }
+
 #loadingMovie {
   display: flex;
   justify-content: center;
@@ -109,6 +131,7 @@ export default {
   padding-left: 20px;
   flex: 1;
 }
+
 #imagemPosterSlide {
   border-radius: 15px;
   transition: 0.5s;
@@ -120,18 +143,7 @@ export default {
   transform: scale(1.1);
   cursor: pointer;
 }
-.VueCarousel-navigation-button[data-v-453ad8cd]{
-  color: transparent !important;
-  outline: none !important;
-}
-
-.VueCarousel-navigation-button[data-v-453ad8cd]:hover {
-  color: #dc1a27 !important;
-  outline: none !important;
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 599px) {
+@media only screen and (max-width: 699px) {
   #imagemPosterSlide {
     height: 250px;
     width: 160px;
@@ -140,15 +152,6 @@ export default {
     font-size: 15px;
     margin-bottom: 5px;
     margin-top: 5px;
-  }
-  .VueCarousel-navigation-button[data-v-453ad8cd]{
-    color: transparent !important;
-    outline: none !important;
-  }
-
-  .VueCarousel-navigation-button[data-v-453ad8cd]:hover {
-    color: transparent !important;
-    outline: none !important; 
   }
 }
 </style>

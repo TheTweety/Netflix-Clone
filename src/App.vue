@@ -19,5 +19,6 @@ export default {
 body {
   background-color: #141414;
   height: 100vh;
+  overflow-x: hidden;
 }
 </style>
