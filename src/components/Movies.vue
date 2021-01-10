@@ -92,7 +92,7 @@ a {
     z-index: 1;
     top: 130px;
     background-color: #dc1a27;
-    right: -20px;
+    right: -5vh;
   
 }
 .custom-arrow-previous:hover {
@@ -113,7 +113,7 @@ a {
     z-index: 1;
     top: 130px;
     background-color:#dc1a27;
-    left: -60px;
+    left: -5vh;
   
 }
 .img-wrapper img {
