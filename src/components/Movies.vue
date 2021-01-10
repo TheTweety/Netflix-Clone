@@ -4,28 +4,20 @@
       <h1>{{ typeDescription }}</h1>
       <div v-show="showLoading" id="loadingMovie">
         <Spinner />
-      </div>
-      
-      <!--carousel
-        :per-page="7"
-        :navigate-to="0"
-        :mouse-drag="true"
-        :paginationEnabled="false"
-        :navigationEnabled="true"
-        :navigationClickTargetSize="9"
-      >
-        <slide
-          v-bind:key="movie.imdbID + removeIdDuplicate()"
-          v-for="movie in movies"
-          id="movieDiv"
-        >
-          <div v-on:click="showDetail(movie.imdbID)">
-            <img :src="movie.Poster" id="imagemPosterSlide" />
-          </div>
-        </slide>
-      </carousel-->
+      </div> 
 
     <VueSlickCarousel  id="movieDiv" v-if="movies!=undefined && movies.length>0" v-bind="slickOptions">
+        <template #prevArrow="arrowOption">
+          <div :id="arrowOption" class="custom-arrow-previous round">
+            <a href="#/" ><img src="../assets/previous.png"  />
+            </a>
+          </div>
+        </template>
+        <template #nextArrow="arrowOption">
+         <div :id="arrowOption" class="custom-arrow-next round">
+            <a href="#/" ><img src="../assets/next.png"  /></a>
+          </div>
+        </template>
           <div v-for="(movie,i) in movies" :key="i" >
              <img :src="movie.Poster" id="imagemPosterSlide" />
           </div>
@@ -52,11 +44,11 @@ export default {
         infinite: true,
         slidesToShow: 7,
         mousedrag:true,
-        slidesToScroll: 7,
+        slidesToScroll: 5,
         touchThreshold: 5,
         lazyLoad:"ondemand",
         adaptiveHeight:true,
-        arrows:false
+        arrows:true
       }
     };
   },
@@ -87,6 +79,33 @@ export default {
 };
 </script>
 <style>
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 8px;
+}
+.custom-arrow-next {
+    width: 40px;  
+    border-radius: 50%;
+    height: 40px;
+    position: absolute;
+    z-index: 1;
+    top: 130px;
+    background-color: #dc1a27;
+    right: -20px;
+  
+}
+.custom-arrow-previous {
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+    position: absolute;
+    z-index: 1;
+    top: 130px;
+    background-color:#dc1a27;
+    left: -60px;
+  
+}
 .img-wrapper img {
   margin: auto;
   width: 200px;
@@ -153,5 +172,15 @@ export default {
     margin-bottom: 5px;
     margin-top: 5px;
   }
+  .custom-arrow-next {
+   display: none;
+  
+}
+
+.custom-arrow-previous {
+    
+   display: none;
+}
+
 }
 </style>
