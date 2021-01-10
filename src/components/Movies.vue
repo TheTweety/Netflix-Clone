@@ -95,6 +95,16 @@ a {
     right: -20px;
   
 }
+.custom-arrow-previous:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+  background-color: #d6d6d659;
+}
+.custom-arrow-next:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+  background-color: #d6d6d659;
+}
 .custom-arrow-previous {
     width: 40px;
     border-radius: 50%;
