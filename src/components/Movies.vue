@@ -42,7 +42,7 @@ export default {
       paginationButtons: false,
       slickOptions: {
         infinite: true,
-        slidesToShow: 7,
+        slidesToShow: 4,
         mousedrag:true,
         slidesToScroll: 5,
         touchThreshold: 5,
@@ -126,7 +126,13 @@ a {
   width: 90%;
   height: 100%;
   text-align: center;
+  margin: auto; 
+}
+#slide-list { 
+  text-align: center;
   margin: auto;
+  position: relative;
+  left: 4px;
 }
 #newMovies {
   width: 100%;
@@ -167,6 +173,8 @@ a {
   height: 300px;
   margin-bottom: 20px;
   width: 200px;
+  position: relative;
+  left: 37px;
 }
 #imagemPosterSlide:hover {
   transform: scale(1.1);

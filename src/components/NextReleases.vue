@@ -11,7 +11,7 @@
         condições de saneamento no mundo em desenvolvimento. E suas irmãs
         relembra a infância com ele.
       </p>
-      <button id="buttonPlay" v-on:click="toggle">
+      <button id="buttonPlay" v-on:click="moveToMovie">
         <v-icon name="play" scale="1" id="iconMain" color="#e5e5e5" />
         <span>Play</span>
       </button>
@@ -28,10 +28,8 @@ import Icon from "vue-awesome/components/Icon";
 export default {
   name: "NextRealeses",
   methods: {
-    toggle() {
-      var vid = this.$refs.videoTray
-      vid.muted = !vid.muted
-      this.isHidden = !this.isHidden
+    moveToMovie() {
+      this.$router.push({ name: "Detail", params: { id: 1} });
     }
   },
   data() {
@@ -47,7 +45,7 @@ export default {
 <style >
 .nextReleasesContainer {
   width: 100%;
-  height: 800px;
+  height: 690px;
   position: relative;
   background: #1414147e;
   display: flex;

@@ -13,16 +13,12 @@
             </li>
             <li>
               <a>Most Recent</a>
-            </li>
-            <li v-on:hover="NavigateMyList">
-              <a>My List</a>
-            </li>
+            </li> 
           </ul>
         </li>
         <li class="items" v-on:click="NavigateMain" >Series</li>
         <li class="items">Film</li>
-        <li class="items">My Recent</li>
-        <li class="items" v-on:hover="NavigateMyList">My list</li>
+        <li class="items">My Recent</li> 
         <li></li>
       </ul>
     </nav>
