@@ -6,7 +6,9 @@
         <Spinner />
       </div> 
 
-    <VueSlickCarousel  id="movieDiv" v-if="movies!=undefined && movies.length>0" v-bind="slickOptions">
+    <VueSlickCarousel  id="movieDiv" 
+      v-if="movies!=undefined && movies.length>0"
+       v-bind="slickOptions">
         <template #prevArrow="arrowOption">
           <div :id="arrowOption" class="custom-arrow-previous round">
             <a href="#/" ><img src="../assets/previous.png"  />
@@ -22,6 +24,8 @@
              <img :src="movie.Poster" id="imagemPosterSlide" />
           </div>
     </VueSlickCarousel>
+
+    
     </div>
   </div>
 </template>
@@ -132,8 +136,10 @@ a {
   text-align: center;
   margin: auto;
   position: relative;
-  left: 4px;
+  left: 4px; 
+
 }
+
 #newMovies {
   width: 100%;
   height: 100%;
@@ -175,6 +181,7 @@ a {
   width: 200px;
   position: relative;
   left: 37px;
+  z-index: 100;
 }
 #imagemPosterSlide:hover {
   transform: scale(1.1);

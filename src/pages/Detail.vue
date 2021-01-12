@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <Header />
-    <div class="video-container">
+  <div> 
+    <div v-on:click="NavigateMain" id="divPrevArrow"> 
+      <a id="divPrevArrow-a" class="custom-arrow-previous-detail round" href="#/" >
+        <img id="divPrevArrow-img"  src="../assets/previous.png"  /></a>
+  </div>
+     <div class="video-container">
     <!-- <video src="bbb.mp4"></video> -->
     <video src="../assets/video.mp4"></video>
     <div class="controls-container">
@@ -100,7 +103,6 @@
   </div>
 </template> 
 <script>
-import Header from "../components/Header";  
 
 export default {
   name: "Detail",
@@ -112,12 +114,13 @@ export default {
     };
   },
   components: {
-    Header, 
   },
 
   async mounted() {
   const videoContainer = document.querySelector('.video-container');
   const video = document.querySelector('.video-container video');
+  
+  const backBtn = document.querySelector('.custom-arrow-previous-detail');
 
   const controlsContainer = document.querySelector('.video-container .controls-container');
 
@@ -140,17 +143,20 @@ export default {
 
   let controlsTimeout;
   controlsContainer.style.opacity = '0';
+  backBtn.style.opacity = '0';
   watchedBar.style.width = '0px';
   pauseButton.style.display = 'none';
   minimizeButton.style.display = 'none';
 
   const displayControls = () => {
+    backBtn.style.opacity = '1';
     controlsContainer.style.opacity = '1';
     document.body.style.cursor = 'initial';
     if (controlsTimeout) {
       clearTimeout(controlsTimeout);
     }
     controlsTimeout = setTimeout(() => {
+    backBtn.style.opacity = '0';
       controlsContainer.style.opacity = '0';
       document.body.style.cursor = 'none';
     }, 5000);
@@ -256,6 +262,9 @@ export default {
   fullScreenButton.addEventListener('click', toggleFullScreen);
   },
   methods: {
+     NavigateMain() {
+      this.$router.push({ name: "Main" });
+    },
     
   }
 };
@@ -270,11 +279,25 @@ body {
   overflow-y: auto;
   background: black;
   font-family: 'Rubik', sans-serif;
+} 
+
+.custom-arrow-previous-detail {
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+    position: absolute;
+    z-index: 99;
+    top: 5vh;
+    left: 2vw;  
+    background-color:#dc1a27;
+      transition: opacity 0.5s linear;
+  
 }
 
 .video-container {
-  width: 100%;
-  height: 100%;
+     height: 100vh;
+    width: 100vw;
+    object-fit: fill;
   display: flex;
   justify-content: center;
   align-items: center;
