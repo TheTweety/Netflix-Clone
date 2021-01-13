@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
+    "swiper": "^6.4.5",
     "vue": "^2.6.11",
     "vue-awesome": "^4.0.2",
     "vue-carousel": "^0.18.0",
@@ -31,6 +32,8 @@
     "eslint-plugin-vue": "^6.1.2",
     "less": "^4.1.0",
     "less-loader": "^7.2.1",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.1.0",
     "sass": "^1.32.2",
     "sass-loader": "^10.1.0",
     "stylus": "^0.54.8",

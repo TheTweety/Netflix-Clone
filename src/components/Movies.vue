@@ -1,211 +1,414 @@
-<template>
-  <div id="newMovies">
-    <div id="slide">
-      <h1>{{ typeDescription }}</h1>
-      <div v-show="showLoading" id="loadingMovie">
-        <Spinner />
-      </div> 
+<template lang="pug">
+  .container
+    .slide-button(
+      @click="right"
+      class="slide-button--right"
+    )
+      i(class="fa fa-chevron-right fa-2x" aria-hidden="true" )
+      
+    .slide-button(
+      @click="left"
+      class="slide-button--left"
+      v-if="infinityLoop"
+    )
+      i(class="fa fa-chevron-left fa-2x" aria-hidden="true")
 
-    <VueSlickCarousel  id="movieDiv" 
-      v-if="movies!=undefined && movies.length>0"
-       v-bind="slickOptions">
-        <template #prevArrow="arrowOption">
-          <div :id="arrowOption" class="custom-arrow-previous round">
-            <a href="#/" ><img src="../assets/previous.png"  />
-            </a>
-          </div>
-        </template>
-        <template #nextArrow="arrowOption">
-         <div :id="arrowOption" class="custom-arrow-next round">
-            <a href="#/" ><img src="../assets/next.png"  /></a>
-          </div>
-        </template>
-          <div v-for="(movie,i) in movies" :key="i" >
-             <img :src="movie.Poster" id="imagemPosterSlide" />
-          </div>
-    </VueSlickCarousel>
+    .showcase(
+      ref="showcase"
+      v-on:mouseout="hideShowcase"
+      :class="{expand:expandShowcase}"
+      )
 
-    
-    </div>
-  </div>
+    .slider-wrapper(ref="wrapper")
+      transition-group(tag="div" class="slider" name="list")
+        .slide-container(
+          v-for="(container,slideContainerIndex) in slideContainer"
+          :key="container"
+          :class="[slideContainerIndex%3 === 1 ? 'middle' : '']"
+          v-on:transitionend="containerTransition"
+          )
+          .slide(
+            v-for="(content ,contentIndex) in contentContainer[container]"
+            ref="slides"
+            v-mouse:mouseover="{position: slideContainerIndex % 3,handler:selectSlide}"
+            v-mouse:mouseout="{position: slideContainerIndex % 3,handler:unselectSlide}"
+            :id="'slide-'+container+'-'+contentIndex"
+            :data-container-index="slideContainerIndex"
+            :data-content-index="contentIndex"
+          ) {{content}}
 </template>
 
+
 <script>
-import VueSlickCarousel from 'vue-slick-carousel'
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import Spinner from "../components/Spinner";
-import { Movies } from "../services/api";
+import _ from 'lodash';
 
 export default {
-  name: "Movies",
-
+  name: 'Slider',
+   props: ["typeMovie", "typeDescription"],
+  directives: {
+    mouse: {
+      bind(el, binding) {
+        if (binding.value.position === 1) {
+          el.addEventListener(binding.arg, binding.value.handler);
+        }
+      },
+      update(el, binding) {
+        if (binding.value.position === 1) {
+          el.addEventListener(binding.arg, binding.value.handler);
+        } else {
+          el.removeEventListener(binding.arg, binding.value.handler);
+        }
+      },
+    },
+  },
   data() {
     return {
-      movies: [],
-      showLoading: true,
-      paginationButtons: false,
-      slickOptions: {
-        infinite: true,
-        slidesToShow: 4,
-        mousedrag:true,
-        slidesToScroll: 5,
-        touchThreshold: 5,
-        lazyLoad:"ondemand",
-        adaptiveHeight:true,
-        arrows:true
-      }
+      bodyMarginLeft: document.body.getBoundingClientRect().left,
+      expandShowcase: false,
+      timeoutID: '',
+      ratio: 1.3,
+      selectedSlidePos: {},
+      isSliding: false,
+      slideContainer: [-1, 0, 1],
+      contentContainer: [],
+      contentContainerSize: 6,
+      contentData:
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+      infinityLoop: false,
     };
   },
-  props: ["typeMovie", "typeDescription"],
-  components: {
-    VueSlickCarousel,
-    Spinner
-  },
-  async mounted() {
-    this.showLoading = true;
-    try {
-      const response = await Movies(this.typeMovie).get();
-      this.movies = response.data.Search;
-    } catch (error) {
-      console.error(error);
-    } finally {
-      this.showLoading = false;
-    }
-  },
   methods: {
-    showDetail(_id) {
-      this.$router.push({ name: "Detail", params: { id: _id } });
+    left: _.debounce(function slideLeft() {
+      if (!this.expandShowcase) {
+        this.isSliding = true;
+        // Infinity loop
+        if (this.slideContainer[0] === 0) {
+          const page = this.contentContainer.length - 1;
+          this.slideContainer.unshift(page);
+        } else {
+          this.slideContainer.unshift(this.slideContainer[0] - 1);
+        }
+        this.slideContainer.pop();
+        this.setColor(this.slideContainer[0]);
+      }
+    }, 500),
+    right: _.debounce(function slideRight() {
+      if (!this.expandShowcase && _.last(this.slideContainer) < this.contentContainer.length) {
+        this.isSliding = true;
+        this.infinityLoop = true;
+        // Infinity loop
+        if (_.last(this.slideContainer) === this.contentContainer.length - 1) {
+          const page = (this.contentContainer.length - _.last(this.slideContainer)) - 1;
+          this.slideContainer.push(page);
+        } else {
+          this.slideContainer.push(_.last(this.slideContainer) + 1);
+        }
+        this.slideContainer.shift();
+        this.setColor(_.last(this.slideContainer));
+      }
+    }, 500),
+    selectSlide(event) {
+      this.timeoutID = setTimeout(() => {
+        if (!this.isSliding && !this.expandShowcase) {
+          const selectedSlide = event.target;
+          this.selectedSlidePos = this.slideIsFirstOrLast(selectedSlide);
+          const transitionDistance = this.transitionDistance(selectedSlide);
+          const selectedContainer = this.containerIndex(selectedSlide);
+          this.popShowcase(selectedSlide);
+          const animationCallback = (currentSlide) => {
+            if (currentSlide !== selectedSlide) {
+              const currentContainer = this.containerIndex(currentSlide);
+              let direction = 0;
+              if (this.selectedSlidePos.isFirst) {
+                if (currentContainer >= 1) {
+                  direction = 1;
+                }
+              } else if (this.selectedSlidePos.isLast) {
+                if (currentContainer <= 1) {
+                  direction = -1;
+                }
+              } else if (currentContainer === selectedContainer) {
+                direction =
+                this.contentIndex(currentSlide) < this.contentIndex(selectedSlide) ? 1 : -1;
+              } else {
+                direction = currentContainer < 1 ? 1 : -1;
+              }
+              this.setStyleProperty(currentSlide, { transform: `translateX(${transitionDistance * direction}px)` });
+            }
+          };
+          this.animateSlideTransition(animationCallback);
+        }
+      }, 500);
     },
-    removeIdDuplicate() {
-      return String(Math.random());
-    }
-  }
+    unselectSlide() {
+      clearTimeout(this.timeoutID);
+    },
+    containerIndex(element) {
+      return element.dataset.containerIndex * 1;
+    },
+    contentIndex(element) {
+      return element.dataset.contentIndex * 1;
+    },
+    slideIsFirstOrLast(element) {
+      return {
+        isFirst: this.slideIsFirst(element),
+        isLast: this.slideIsLast(element),
+      };
+    },
+    slideIsFirst(element) {
+      return this.contentIndex(element) === 0;
+    },
+    slideIsLast(element) {
+      const containerIndex = this.containerIndex(element);
+      return this.contentIndex(element) === this.contentContainer[containerIndex].length - 1;
+    },
+    transitionDistance(element) {
+      if (this.selectedSlidePos.isFirst || this.selectedSlidePos.isLast) {
+        return element.clientWidth * (this.ratio - 1);
+      }
+      return element.clientWidth * ((this.ratio - 1) / -2);
+    },
+    animateSlideTransition(callback) {
+      this.$refs.slides.forEach((slide) => {
+        callback(slide);
+      });
+    },
+    containerTransition() {
+      // Triggered by 'transitionend' event from slider container
+      this.isSliding = false;
+    },
+    popShowcase(selectedSlide) {
+      const selectedRect = selectedSlide.getBoundingClientRect();
+      const showcaseWidth = selectedRect.left - this.bodyMarginLeft;
+      const showcaseStyle = {
+        left: `${showcaseWidth}px`,
+        width: `${selectedRect.width}px`,
+        height: `${selectedRect.height}px`,
+        'background-color': `${selectedSlide.style.backgroundColor}`,
+      };
+      let transformOrigin = 'center center';
+      if (this.selectedSlidePos.isFirst) {
+        transformOrigin = 'center left';
+      } else if (this.selectedSlidePos.isLast) {
+        transformOrigin = 'center right';
+      }
+      Object.assign(showcaseStyle, { 'transform-origin': transformOrigin });
+      this.setStyleProperty(this.$refs.showcase, showcaseStyle);
+      this.expandShowcase = true;
+    },
+    hideShowcase(event) {
+      if (event.currentTarget.classList.contains('expand')) {
+        this.expandShowcase = false;
+        this.animateSlideTransition((currentSlide) => {
+          this.setStyleProperty(currentSlide, { transform: '' });
+        });
+      }
+    },
+    resetContentContainer() {
+      this.setContentContainer();
+      this.updateContentContainer();
+    },
+    setContentContainer() {
+      if (window.matchMedia('(max-width: 480px)').matches) {
+        this.contentContainerSize = 2;
+      } else if (window.matchMedia('(max-width: 768px)').matches) {
+        this.contentContainerSize = 3;
+      } else if (window.matchMedia('(max-width:1024px)').matches) {
+        this.contentContainerSize = 4;
+      } else {
+        this.contentContainerSize = 6;
+      }
+      this.contentContainer = _.chunk(this.contentData, this.contentContainerSize);
+    },
+    updateContentContainer() {
+      this.slideContainer = [-1, 0, 1];
+      this.setColor(this.slideContainer[0]);
+      this.setColor(this.slideContainer[1]);
+      this.setColor(this.slideContainer[2]);
+    },
+    setColor(containerIndex, callback) {
+      // Helper function for the demo
+      if (containerIndex > -1 && containerIndex < this.contentContainer.length) {
+        this.$nextTick(() => {
+          this.contentContainer[containerIndex].forEach((content, contentIndex) => {
+            const slideID = `#slide-${containerIndex}-${contentIndex}`;
+            const slide = this.$el.querySelector(slideID);
+            const offset = contentIndex * 7;
+            const hue = (containerIndex * 20) % 360;
+            this.setStyleProperty(slide, { 'background-color': `hsl(${hue},${40 + offset}%,${50 + offset}%)` });
+          });
+          if (callback) {
+            callback();
+          }
+        });
+      }
+    },
+    setStyleProperty(element, styles) {
+      Object.assign(element.style, styles);
+    },
+  },
+  mounted() {
+    let recaptchaScript = document.createElement('script')
+    recaptchaScript.setAttribute('src', 'https://use.fontawesome.com/736e2841c6.js')
+    document.head.appendChild(recaptchaScript)
+    
+    this.$el.style.setProperty('--ratio', `${this.ratio}`);
+    this.slideContainer.forEach((container) => {
+      this.setColor(container);
+    });
+    window.addEventListener('resize', _.debounce(this.resetContentContainer, 150));
+  },
+  destroyed() {
+    window.removeEventListener('resize', _.debounce(this.resetContentContainer, 150));
+  },
+  created() {
+    this.setContentContainer();
+  },
 };
 </script>
-<style>
-a {
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px 8px;
-}
-.custom-arrow-next {
-    width: 40px;  
-    border-radius: 50%;
-    height: 40px;
-    position: absolute;
-    z-index: 1;
-    top: 130px;
-    background-color: #dc1a27;
-    right: -5vh;
-  
-}
-.custom-arrow-previous:hover {
-  transform: scale(1.3);
-  cursor: pointer;
-  background-color: #d6d6d659;
-}
-.custom-arrow-next:hover {
-  transform: scale(1.3);
-  cursor: pointer;
-  background-color: #d6d6d659;
-}
-.custom-arrow-previous {
-    width: 40px;
-    border-radius: 50%;
-    height: 40px;
-    position: absolute;
-    z-index: 1;
-    top: 130px;
-    background-color:#dc1a27;
-    left: -5vh;
-  
-}
-.img-wrapper img {
-  margin: auto;
-  width: 200px;
-  height: 100px;
-  background-image: linear-gradient(gray 100%, transparent 0);
-} 
-#slide {
-  width: 90%;
-  height: 100%;
-  text-align: center;
-  margin: auto; 
-}
-#slide-list { 
-  text-align: center;
-  margin: auto;
-  position: relative;
-  left: 4px; 
 
-}
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
 
-#newMovies {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  margin: auto;
-}
-#buttonNexts {
-  color: #f1f;
-}
-#newMovies h1 {
-  color: #cacaca;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  margin-top: 15px;
-  padding-left: 20px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-#loadingMovie {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#movieDiv {
-  margin-top: 23px;
-  padding-left: 20px;
-  flex: 1;
-}
-
-#imagemPosterSlide {
-  border-radius: 15px;
-  transition: 0.5s;
-  height: 300px;
-  margin-bottom: 20px;
-  width: 200px;
-  position: relative;
-  left: 37px;
-  z-index: 100;
-}
-#imagemPosterSlide:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-@media only screen and (max-width: 699px) {
-  #imagemPosterSlide {
-    height: 250px;
-    width: 160px;
+$button-width: 5vw;
+$slider-container-width:95vw;
+$slider-width: $slider-container-width *3;
+/* Medium Devices, Desktops */
+@mixin md-screen {
+  @media only screen and (max-width : 1024px) {
+    @content;
   }
-  #newMovies h1 {
-    font-size: 15px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+}
+/* Small Devices, Tablets */
+@mixin sm-screen {
+  @media only screen and (max-width : 768px) {
+    @content;
   }
-  .custom-arrow-next {
-   display: none;
-  
+}
+/* Extra small devices */
+@mixin xs-screen {
+  @media only screen and (max-width : 480px) {
+    @content;
+  }
 }
 
-.custom-arrow-previous {
-    
-   display: none;
+@function slide-width($numOfSlides) {
+  @return $slider-container-width / $numOfSlides;
 }
 
+@function slide-height($width) {
+  @return $width * 0.6;
+}
+
+.container {
+  --duration: 0.4s;
+  --cubic-bezier: cubic-bezier( 0.5 , 0, 0.1 ,1);
+  position: relative;
+}
+.container * {
+  box-sizing: border-box;
+}
+
+/* Slider buttoms */
+.slide-button {
+  width: $button-width;
+  height: slide-height(slide-width(6));
+  background-color: black;
+  opacity: 0.6;
+  position: absolute;
+  z-index: 10;
+}
+.slide-button > .fa {
+  color:grey;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+.slide-button.slide-button--left {
+  left: 0;
+}
+.slide-button.slide-button--right {
+  right: 0;
+}
+
+/* Showcase */
+.showcase {
+  position: absolute;
+  visibility: hidden;
+  transition: transform var(--duration) var(--cubic-bezier),visibility 0s calc(var(--duration));
+  will-change: transform, visibility;
+  z-index: 10;
+}
+.showcase.expand {
+  transform: scale( 1.5 , 1.5);
+  visibility: visible;
+  transition: transform var(--duration) var(--cubic-bezier) ;
+}
+
+/* Slider */
+.slider-wrapper {
+  overflow: hidden;
+}
+.slider {
+  display: flex;
+  width: $slider-width;
+  transform: translateX(-($slider-container-width - $button-width));
+}
+.slide-container {
+  display: flex;
+  flex: 0 0 $slider-container-width;
+  will-change: transform;
+}
+.slide-container.middle {
+  z-index: 1;
+}
+.slide {
+  width:slide-width(6);
+  height: slide-height(slide-width(6));
+  transition: transform var(--duration) var(--cubic-bezier);
+  will-change: transform;
+  // box-sizing: border-box;
+}
+
+/* Slider Transition*/
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+}
+.list-leave-active{
+  display: none;
+  position: absolute;
+}
+.list-move {
+  transition: all 1s;
+}
+/* Responsilbe Web */
+@include md-screen {
+  .slide {
+    width:slide-width(4);
+    height: slide-height(slide-width(4));
+  }
+  .slide-button {
+    height:slide-height(slide-width(4));
+  }
+}
+@include sm-screen {
+  .slide {
+    width:slide-width(3);
+    height: slide-height(slide-width(3));
+  }
+  .slide-button {
+    height:slide-height(slide-width(3));
+  }
+}
+@include xs-screen {
+  .slide {
+    width:slide-width(2);
+    height: slide-height(slide-width(2));
+  }
+  .slide-button {
+    height:slide-height(slide-width(2));
+  }
 }
 </style>
