@@ -59,6 +59,7 @@ test:
   <<: *default
   database: spaceflix-v2_test
   username: saifa 
+  host: localhost
   password: foobar1
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

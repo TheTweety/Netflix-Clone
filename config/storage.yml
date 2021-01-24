@@ -5,3 +5,10 @@ test:
 local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
+
+amazon_dev:
+  service: S3
+  access_key_id: "AKIATTLGGKE5HWYOOOJQ"
+  secret_access_key: "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"
+  region: "us-east-2"
+  bucket: "moviestreamer"
