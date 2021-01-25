@@ -145,13 +145,16 @@ class Nav extends React.Component {
 
             let homeLink;
             let listLink;
+            let movieFestivalLink;
             if (this.props.onList) {
                 homeLink = (<Link to="/browse" className="browse-link unselectable-text">Home</Link>)
-                listLink = (<p className="browse-link browse-link-active unselectable-text">My List</p>)
+                listLink = (<p className="browse-link browse-link-active unselectable-text">Favorites</p>)
+                movieFestivalLink =  (<p className="browse-link browse-link-active unselectable-text">Film Festival</p>)
 
             } else {   
                 homeLink= (<p className="browse-link browse-link-active unselectable-text">Home</p>)
-                listLink = (<Link to="/my-list" className="browse-link unselectable-text">My List</Link>)
+                listLink = (<Link to="/my-list" className="browse-link unselectable-text">Favorites</Link>)
+                movieFestivalLink = (<Link to="/browse" className="browse-link unselectable-text">Film Festival</Link>)
             }
 
             navLeft=(
@@ -161,7 +164,9 @@ class Nav extends React.Component {
                     </Link>
                     <div className="browse-links-container">
                         {homeLink}
+                        {movieFestivalLink}
                         {listLink}
+                        
                     </div>
                 </div>
             )

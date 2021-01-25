@@ -6,7 +6,7 @@ class Feature extends React.Component {
         super(props);
 
         this.state = {
-            muted: false
+            muted: true
         };
 
         this.toggleMute = this.toggleMute.bind(this);
