@@ -1,5 +1,5 @@
 import React from "react"; 
-
+import Nav from "../nav_container";    
 class PricingContainer extends React.Component {
 
     constructor(props) {
@@ -9,9 +9,18 @@ class PricingContainer extends React.Component {
         }
  
     } 
-    render() {
 
-        return(<div>new pricing</div>)
+    render() {
+        return(
+            <div className="my-list-main">
+                <Nav page="browse" onList={true} /> 
+                <Nav page="moviefestival" onList={true} />
+                <div className="list-container"> 
+                    <div className="list-rows-container">
+                    priving
+                    </div>
+                </div> 
+        </div>)
     }
 }
 

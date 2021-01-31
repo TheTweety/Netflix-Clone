@@ -1,0 +1,95 @@
+.my-list-main {
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: space-between;
+}
+.movie-festival-container{ 
+    width: 45vw;
+    margin-left: 110px;
+    height: fit-content;
+    font-weight: 300;
+    margin-bottom: 10px
+}
+.custom-headings{
+    font-size: 30px;
+    font-weight: bold;
+}
+.accordion {
+    background-color: #CD4E4E;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+    background-color: #CD3A3A;
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .panel {
+    padding: 18px 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+  }
+.content-1{ 
+    width: 80vw;
+    height: fit-content;
+    background-color: #CD4E4E;
+    box-shadow: 0 14px 28px rgba(150, 150, 150, 0.25), 0 10px 10px rgba(150, 150, 150, 0.25);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);  
+    color: black;
+    padding: 15px;
+    font-family: 'HKGroteskRegular';
+    font-weight: normal;
+    font-style: normal; 
+    border-radius: 20px;
+}
+
+.content-2{
+    padding: 10px;
+    align-content: center;
+    text-align: justify;
+}
+
+.list-container {
+    margin-top: 90px;
+    width: 100%;
+    min-height: 90vh;
+}
+
+.list-header {
+    margin-left: 70px;
+    margin-bottom: 50px;
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.no-movies-text-box {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 30px;
+    margin-left: 70px;
+}
+
+.no-movies-text {
+    font-size: 30px;
+}
+
+.no-movies-link {
+    font-size: 30px;
+    color: #e50914;
+    margin-left: 10px;
+}
+
+.no-movies-link:hover {
+    opacity: 0.8;
+}
