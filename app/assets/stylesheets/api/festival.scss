@@ -15,10 +15,15 @@
 .custom-headings{
     font-size: 30px;
     font-weight: bold;
+    padding: 10px;
+    font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #e50914;
 }
 .accordion {
-    background-color: #CD4E4E;
-    color: black;
+    background-color: #212529;
+    
+    font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #D1D0CF;
     cursor: pointer;
     padding: 18px;
     width: 100%;
@@ -26,11 +31,12 @@
     border: none;
     outline: none;
     transition: 0.4s;
+    font-size: 16px;
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
   .active, .accordion:hover {
-    background-color: #CD3A3A;
+    background-color: #e50914;
   }
   
   /* Style the accordion panel. Note: hidden by default */
@@ -40,24 +46,86 @@
     display: none;
     overflow: hidden;
   }
+  .content-images{
+    width: 95%;
+    padding: 80px 0 80px 80px;
+    border-radius: 16px;
+    background-image:  image-url("FestivalBackground");
+    opacity: 0.85;
+
+  }
+  .banner-content{
+    color: white;
+    font-size: 13vh;
+    font-family: Franklin Gothic Medium,Franklin Gothic,ITC Franklin Gothic,Arial,sans-serif;
+    text-shadow: 10px 8px #333;
+  }
+  .mybutton:hover {
+    background: #bf000a; 
+    color: white;
+    transition: color 0.3s ease;
+    display: inline-block;
+    vertical-align: middle; 
+    transform: perspective(7px) translateZ(0);
+    box-shadow: 0 0 1px black; 
+    border-radius: 5px;
+}
+
+.mybutton {
+    background-color: #e50914;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 23px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    left: 45%;
+    font-family: Franklin Gothic Medium,Franklin Gothic,ITC Franklin Gothic,Arial,sans-serif;
+    text-shadow: 2px 2px #333;
+    border-radius: 5px;
+}
 .content-1{ 
     width: 80vw;
     height: fit-content;
-    background-color: #CD4E4E;
-    box-shadow: 0 14px 28px rgba(150, 150, 150, 0.25), 0 10px 10px rgba(150, 150, 150, 0.25);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);  
-    color: black;
+    background-color: #212529;
+    /* box-shadow: 0 14px 28px rgb(0 0 0 / 50%), 0 10px 10px rgb(150 150 150 / 25%); */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    color: #D1D0CF;
     padding: 15px;
-    font-family: 'HKGroteskRegular';
+    font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-weight: normal;
-    font-style: normal; 
-    border-radius: 20px;
+    font-style: normal;
+    /* border-radius: 0px; */
+    box-shadow: 30px 0 20px 0 black;
 }
-
-.content-2{
-    padding: 10px;
+ol, ul { 
+    list-style: decimal!important;
+    font-size: 16px!important;
+    margin: 0px 0px 31px 15px!important;
+}
+.content-2 {
+    padding: 5px;
     align-content: center;
     text-align: justify;
+    line-height: 45px;
+    font-size: 16px;
+    margin: 23px;
+    column-count: 2;
+    font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.content-3 {
+    padding: 5px;
+    align-content: center;
+    text-align: justify;
+    line-height: 45px;
+    font-size: 16px;
+    margin: 23px;
+    font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 .list-container {
