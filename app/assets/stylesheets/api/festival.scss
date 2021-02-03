@@ -21,8 +21,7 @@
     text-shadow: 6px 2px #333;
 }
 .accordion {
-    background-color: #212529;
-    
+    background-color: #212529; 
     font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
     color: #D1D0CF;
     cursor: pointer;
@@ -36,9 +35,6 @@
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .accordion:hover {
-    background-color: #e50914;
-  }
   
   /* Style the accordion panel. Note: hidden by default */
   .panel {
@@ -48,7 +44,7 @@
     overflow: hidden;
   }
   .content-images{
-    width: 95%;
+    width: revert;
     padding: 80px 0 80px 80px;
     border-radius: 16px;
     background-image:  image-url("FestivalBackground");
@@ -103,7 +99,7 @@
     /* border-radius: 0px; */
     box-shadow: 30px 0 20px 0 black;
 }
-ol, ul { 
+.rules { 
     list-style: decimal!important;
     font-size: 16px!important;
     margin: 0px 0px 31px 15px!important;
@@ -115,7 +111,6 @@ ol, ul {
     line-height: 45px;
     font-size: 16px;
     margin: 23px;
-    column-count: 2;
     font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
@@ -130,9 +125,11 @@ ol, ul {
 }
 
 .list-container {
-    margin-top: 90px;
-    width: 100%;
+    margin-top: 70px;
+    width: 100vw;
     min-height: 90vh;
+    position: relative;
+    background: #141414; 
 }
 
 .list-header {
@@ -162,3 +159,37 @@ ol, ul {
 .no-movies-link:hover {
     opacity: 0.8;
 }
+
+ul {
+    border: solid 1px #e50914;
+    column-count: 2; 
+  } 
+  .accordion-item:hover{
+      background-color: #dc1a27;  
+      border-radius: 10px;
+  } 
+  .accordion-item:focus {
+    background-color: #dc1a27;
+}
+  .column-break {
+    break-after: column;
+  } 
+ 
+  .accordion-thumb {
+    margin: 0;
+    padding: 5px;
+    cursor: pointer;
+    font-weight: normal;
+    text-indent: 20px;
+  }
+  
+  .accordion-panel {
+    margin: -10px;
+    display: none;
+    margin-left: revert;
+    padding: 14px;
+    background-color: #333;
+    margin-right: revert;
+    margin-bottom: 5px;
+    margin-top: 1px;
+  }

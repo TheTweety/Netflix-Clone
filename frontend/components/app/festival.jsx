@@ -9,24 +9,29 @@ class Festival extends React.Component {
         }
  
     }  
-    componentDidMount() {
-        var acc = document.getElementsByClassName("accordion");
-        var i; 
-        for (i = 0; i < acc.length; i++) {
-          acc[i].addEventListener("click", function() {
-            /* Toggle between adding and removing the "active" class,
-            to highlight the button that controls the panel */
-            this.classList.toggle("active");
-        
-            /* Toggle between hiding and showing the active panel */
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-              panel.style.display = "none";
-            } else {
-              panel.style.display = "block";
-            }
+    componentDidMount() { 
+
+        $(function() {
+            // (Optional) Active an item if it has the class "is-active"
+            $(".accordion > .accordion-item.is-active")
+              .children(".accordion-panel")
+              .slideDown();
+          
+            $(".accordion > .accordion-item").click(function() {
+              // Cancel the siblings
+              $(this)
+                .siblings(".accordion-item")
+                .removeClass("is-active")
+                .children(".accordion-panel")
+                .slideUp();
+              // Toggle the item
+              $(this)
+                .toggleClass("is-active")
+                .children(".accordion-panel")
+                .slideToggle("ease-out");
+            });
           });
-        }
+          
     }
     render() {   
        
@@ -53,7 +58,7 @@ class Festival extends React.Component {
                                 </div>
                                 
                                 <div className="content-3">
-                                    <ol>
+                                    <ol className="rules">
                                         <li>
                                              In order to submit a film, you must own the rights or have permission from the owner.
                                         </li>
@@ -103,107 +108,132 @@ class Festival extends React.Component {
                                     Awards & Prizes
                                 </div>
 
-                                <div className="content-2">
+                               <div className="content-2">
+                               <ul className="accordion"> 
 
-                                <button className="accordion">Best Short</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
+                               <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Short</h3>
+                                    <p className="accordion-panel"> asd <br/> asd </p>
+                                </li>
+                                
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Foreign Short</h3>
+                                    <p className="accordion-panel">2222222222<br/>3333333333<br/>3333333333		</p>
+                                </li>
+	
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Documentary Short</h3>
+                                    <p className="accordion-panel">3333333333<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+                                
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Animation Short</h3>
+                                    <p className="accordion-panel">4444444444<br/>3333333333<br/>3333333333		</p>
+                                </li>
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Experimental Short</h3>
+                                    <p className="accordion-panel">5555555555<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+                                
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Student Short</h3>
+                                    <p className="accordion-panel">6666666666<br/>3333333333<br/>3333333333		</p>
+                                </li>
+                                
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best First Time Filmmaker Short</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
 
-                                    <button className="accordion">Best Short Foreign</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Music Video</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
 
-                                    <button className="accordion">Best Documentary Short</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Animation Short</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Experimental Short</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Student Short</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                 
-                                    <button className="accordion">Best First Time Filmmaker Short</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Music Video</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Web Series</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Producer</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Female Director</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Male Director</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Female Student Director</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Male Student Director</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Actress</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Actor</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best New Actress / Actor</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Acting Ensemble</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Cinematography</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Editing</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Production Design</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Sound Design</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Original Score</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
-                                    <button className="accordion">Best Screenwriting</button>
-                                    <div className="panel">
-                                        <p>Lorem ipsum...</p>
-                                    </div>
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Web Series</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Producer</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Female Director</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+                                
+                            <li className="column-break"></li>
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Male Director</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Female Student Director</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Actress</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Actor</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best New Actress / Actor</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Acting Ensemble</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Cinematography</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Editing</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Production Design</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Original Score</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>           
+                                
+                                <li className="accordion-item">
+                                    <h3 className="accordion-thumb">Best Screenwriting</h3>
+                                    <p className="accordion-panel">7777777777<br/>3333333333<br/>3333333333
+                                    </p>
+                                </li>
+
+                               </ul>
+                                    
                                 </div>
                          </div>
                     </div>   
