@@ -17,7 +17,7 @@
     font-weight: bold;
     padding: 10px;
     font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
-    color: #e50914;
+    color:  #dc1a27;
     text-shadow: 6px 2px #333;
 }
 .accordion {
@@ -32,6 +32,7 @@
     outline: none;
     transition: 0.4s;
     font-size: 16px;
+    column-count: 2; 
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -58,7 +59,7 @@
     text-shadow: 10px 8px #333;
   }
   .mybutton:hover {
-    background: #bf000a; 
+    background: #cf1925; 
     color: white;
     transition: color 0.3s ease;
     display: inline-block;
@@ -69,7 +70,7 @@
 }
 
 .mybutton {
-    background-color: #e50914;
+    background-color:  #dc1a27;
     border: none;
     color: white;
     padding: 15px 30px;
@@ -152,18 +153,14 @@
 
 .no-movies-link {
     font-size: 30px;
-    color: #e50914;
+    color: #3C4A90;
     margin-left: 10px;
 }
 
 .no-movies-link:hover {
     opacity: 0.8;
 }
-
-ul {
-    border: solid 1px #e50914;
-    column-count: 2; 
-  } 
+ 
   .accordion-item:hover{
       background-color: #dc1a27;  
       border-radius: 10px;

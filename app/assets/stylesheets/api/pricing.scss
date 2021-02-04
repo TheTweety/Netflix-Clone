@@ -26,3 +26,26 @@
     font-weight: 500;
 }
 
+.pricing-container{
+    position: relative; 
+    height: fit-content; 
+    text-align: center; 
+    margin: auto;
+    width: 65%; 
+	padding: 10px; 
+	backdrop-filter: blur(10px);
+    padding: 25px;
+    box-shadow: 0px 0 20px 0 black;
+    -webkit-box-shadow: 0px 0 20px 0 black;
+    -moz-box-shadow: 0px 0 20px 0 rgba(0, 0, 0, 0.5);
+    display: block;
+	margin: 0 auto;
+}
+
+.price .basic-header {
+    background-color: #f8f9fa!important;
+    color: grey!important;
+    font-size: 33px!important;
+    padding-top: 15px!important;
+    padding-bottom: 15px!important;
+}
