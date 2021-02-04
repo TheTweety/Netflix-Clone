@@ -1,7 +1,6 @@
 import React from "react"; 
 import Nav from "../nav_container"; 
-import {PricingTable, PricingSlot, PricingDetail} from 'react-pricing-table';
-import { useForm } from "react-cool-form";
+import {PricingTable, PricingSlot, PricingDetail} from 'react-pricing-table'; 
 
 class PricingContainer extends React.Component {
 
@@ -15,58 +14,7 @@ class PricingContainer extends React.Component {
 
     
 
-    render() {
-            
-            const Field = ({ label, id, error, ...rest }) => (
-                <div>
-                <label htmlFor={id}>{label}</label>
-                <input id={id} {...rest} />
-                {error && <p>{error}</p>}
-                </div>
-            );
-            
-            const App = () => {
-                const { form, getState } = useForm({
-                // (Strongly advise) Provide the default values just like we use React state
-                defaultValues: { username: "", email: "", password: "" },
-                // The event only triggered when the form is valid
-                onSubmit: (values) => console.log("onSubmit: ", values),
-                });
-                // We can enable the "errorWithTouched" option to filter the error of an un-blurred field
-                // Which helps the user focus on typing without being annoyed by the error message
-                const errors = getState("errors", { errorWithTouched: true }); // Default is "false"
-            
-                return (
-                <form ref={form} noValidate>
-                    <Field
-                        label="Username"
-                        id="username"
-                        name="username"
-                        // Support built-in validation
-                        required
-                        error={errors.username}
-                        />
-                    <Field
-                        label="Email"
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        error={errors.email}
-                        />
-                    <Field
-                        label="Password"
-                        id="password"
-                        name="password"
-                        type="password"
-                        required
-                        minLength={6}
-                        error={errors.password}
-                        />
-                        <input type="submit" />
-                </form>
-                );
-            };
+    render() { 
         return(
             <div className="my-list-main">
                 <Nav page="browse" onList={true} /> 
