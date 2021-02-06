@@ -147,7 +147,7 @@ export default function PricingContainer() {
 
   return (
     <React.Fragment> 
-      <Nav page="browse" onList={true} />  
+      <Nav page="browse" onList="pricing" />  
        <Container maxWidth="sm" component="main" className={classes.heroContent}>
  
         <Typography variant="h5" align="center" className={classes.customPricingHeadingsInitialTitle} component="p">

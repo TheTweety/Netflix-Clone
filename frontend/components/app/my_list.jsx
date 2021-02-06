@@ -71,8 +71,7 @@ class MyList extends React.Component {
 
         return (
             <div className="my-list-main">
-                <Nav page="browse" onList={true} /> 
-                <Nav page="moviefestival" onList={true} />
+                <Nav page="browse" onList="my-list" /> 
                 <div className="list-container">
                     <div className="list-header unselectable-text">My List</div>
                     <div className="list-rows-container">

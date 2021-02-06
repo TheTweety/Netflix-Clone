@@ -147,7 +147,7 @@ export default function PricingGuestContainer() {
 
   return (
     <React.Fragment> 
-      <NavGuest page="moviefestivalguest" onList={true} />  
+      <NavGuest page="moviefestivalguest" onList="pricing" />  
        <Container maxWidth="sm" component="main" className={classes.heroContent}>
  
         <Typography variant="h5" align="center" className={classes.customPricingHeadingsInitialTitle} component="p">

@@ -44,17 +44,16 @@ class NavGuest extends React.Component {
 
         if (page === "moviefestivalguest") { 
             navClasses = "nav-fixed nav-scrolled";
+ 
+            let movieFestivalLink = (<Link to="/moviefestivalGuest" className="browse-link unselectable-text">Festival</Link>);
+            let pricingLink = (<Link to="/pricingGuest" className="browse-link unselectable-text">Pricing</Link>)
 
-            let movieFestivalLink;
-            let pricingLink;
-            if (this.props.onList) {
-                movieFestivalLink = (<Link to="/moviefestivalGuest" className="browse-link browse-link-active unselectable-text">Festival</Link>)
-                pricingLink = (<Link to="/pricingGuest" className="browse-link browse-link-active unselectable-text">Pricing</Link>)
-
-            } else {   
-                 movieFestivalLink = (<Link replace  to="/moviefestivalGuest" className="browse-link unselectable-text">Festival</Link>)
-                pricingLink = (<Link to="/pricingGuest" className="browse-link unselectable-text">Pricing</Link>)
+            if (this.props.onList === "pricing"){
+                pricingLink = (<Link to="/pricingGuest" className="browse-link browse-link-active unselectable-text">Pricing</Link>) 
             }
+            else {
+                movieFestivalLink = (<Link to="/moviefestivalGuest" className="browse-link browse-link-active unselectable-text">Festival</Link>) 
+            }  
 
             navLeft=(
                 <div className="nav-left">

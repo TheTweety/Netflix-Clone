@@ -32,7 +32,7 @@ class FestivalGuest extends React.Component {
     } 
     render() {    
         return(<div className="my-list-main"> 
-               <NavGuest page="moviefestivalguest" onList={true} />  
+               <NavGuest page="moviefestivalguest" onList="moviefestival" />  
                 <div className="list-container">
                     <div className="movie-festival-container">
                         

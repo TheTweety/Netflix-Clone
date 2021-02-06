@@ -146,19 +146,26 @@ class Nav extends React.Component {
             let homeLink;
             let listLink;
             let movieFestivalLink;
-            let pricingLink;
-            if (this.props.onList) {
-                homeLink = (<Link to="/browse" className="browse-link unselectable-text">Home</Link>)
-                listLink = (<Link to="/my-list" className="browse-link unselectable-text">Favorites</Link>)
-                movieFestivalLink = (<Link to="/moviefestival" className="browse-link browse-link-active unselectable-text">Festival</Link>)
-                pricingLink = (<Link to="/pricing" className="browse-link browse-link-active unselectable-text">Pricing</Link>)
+            let pricingLink; 
+            homeLink = (<Link to="/browse" className="browse-link unselectable-text">Home</Link>)
+            listLink = (<Link to="/my-list" className="browse-link unselectable-text">Favorites</Link>)
+            movieFestivalLink = (<Link to="/moviefestival" className="browse-link unselectable-text">Festival</Link>)
+            pricingLink = (<Link to="/pricing" className="browse-link unselectable-text">Pricing</Link>)
 
-            } else {   
-                homeLink= (<p className="browse-link browse-link-active unselectable-text">Home</p>)
-                listLink = (<Link to="/my-list" className="browse-link unselectable-text">Favorites</Link>)
-                movieFestivalLink = (<Link replace  to="/moviefestival" className="browse-link unselectable-text">Festival</Link>)
-                pricingLink = (<Link to="/pricing" className="browse-link unselectable-text">Pricing</Link>)
+            if (this.props.onList === "moviefestival") {
+                movieFestivalLink = (<Link to="/moviefestival" className="browse-link browse-link-active unselectable-text">Festival</Link>) 
+            } 
+            else if (this.props.onList === "my-list"){
+                listLink = (<Link to="/my-list" className="browse-link browse-link-active unselectable-text">Favorites</Link>)
+            
+            } 
+            else if (this.props.onList === "pricing"){
+                pricingLink = (<Link to="/pricing" className="browse-link browse-link-active unselectable-text">Pricing</Link>) 
             }
+            else {
+                homeLink = (<Link to="/browse" className="browse-link browse-link-active unselectable-text">Home</Link>)
+            }
+             
 
             navLeft=(
                 <div className="nav-left">
