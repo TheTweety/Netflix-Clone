@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
 
     customPricingHeadingsInitialTitle:{ 
         color: '#D1D0CF',
-        boxShadow: `10px 0 10px black`,
+        //boxShadow: `10px 0 10px black`,
         padding: `2vw`,
     },
 
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(8),
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
-    boxShadow: `7px 0 10px black`,
+    //boxShadow: `7px 0 10px black`,
     [theme.breakpoints.up('sm')]: {
       paddingTop: theme.spacing(6),
       paddingBottom: theme.spacing(6),
@@ -147,12 +147,7 @@ export default function PricingContainer() {
 
   return (
     <React.Fragment> 
-      <Nav page="browse" onList={true} /> 
-       <Nav page="my-list" onList={true} />
-       <Nav page="moviefestival" onList={true} />
-       <Nav page="pricing" onList={true} /> 
-
-
+      <Nav page="browse" onList={true} />  
        <Container maxWidth="sm" component="main" className={classes.heroContent}>
  
         <Typography variant="h5" align="center" className={classes.customPricingHeadingsInitialTitle} component="p">
