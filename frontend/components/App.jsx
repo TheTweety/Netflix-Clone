@@ -27,9 +27,9 @@ const App = () => (
         </Switch>
         <ProtectedRoute path="/my-list" component={MyListContainer} />
         <ProtectedRoute exact path="/moviefestival" component={MovieContainer} />
+        <ProtectedRoute exact path="/pricing" component={PricingContainer} />
         <AuthRoute exact path="/moviefestivalGuest" component={MovieGuestContainer} />
         <AuthRoute exact path="/pricingGuest" component={PricingGuestContainer} />
-        <AuthRoute exact path="/pricing" component={PricingContainer} />
     </main>
 )
 
