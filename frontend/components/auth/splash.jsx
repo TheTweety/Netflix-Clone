@@ -1,7 +1,8 @@
 import React from "react";
 import Footer from "../footer";
-import NavContainer from "../nav_container";
-
+import NavContainer from "../nav_container"; 
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 class Splash extends React.Component {
 
     constructor(props) {
@@ -130,19 +131,36 @@ class Splash extends React.Component {
                     </div>     
                 </section>
 
-                <section className="story-container">
+                <section className="story-container">  
+
                     <div className="story-card">
                         <div className="story-text-container">
-                            <h2 className="story-title">Enjoy on your TV.</h2>
-                            <h3 className="story-subtitle">Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</h3>
+                            <h2 className="story-title">Movie Festival</h2>
+                            <h3 className="story-subtitle">Upload a movie for a chance to win awards, prizes, and oppurtunities</h3>
+                            <Button 
+                                fullWidth
+                                variant="contained" 
+                                component={Link}
+                                 to="/moviefestivalGuest" 
+                                className="festivalbtn" >  
+                                    Go To Festival
+                                </Button> 
                         </div>
                         <div className="story-media-container">
-                            <div className="story-1-gif">
-                                <div className="story-1-img">
-                                </div>
+                            <div className="story-0-img">
+                                <div className="story-0-gif"/>    
                             </div>
                         </div>
                     </div>
+
+
+
+
+
+
+
+
+
 
                     <div className="story-card">
                         <div className="story-media-container">

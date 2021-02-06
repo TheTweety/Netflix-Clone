@@ -1,9 +1,9 @@
 import { connect } from "react-redux";   
-import Festival from "./festival"
+import FestivalGuest from "./festival_guest"
 const msp = state => ({ 
 })
 
 const mdp = dispatch => ({ 
 })
 
-export default connect(msp, mdp)(Festival);
+export default connect(msp, mdp)(FestivalGuest);

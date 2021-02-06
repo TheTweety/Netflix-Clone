@@ -1,8 +1,7 @@
-import React from "react"; 
-import Nav from "../nav_container";   
-import NavGuest from "../nav_guest_container";    
+import React from "react";  
+import NavGuest from "../nav_guest";    
 
-class Festival extends React.Component {
+class FestivalGuest extends React.Component {
 
     constructor(props) {
         super(props);    
@@ -30,16 +29,14 @@ class Festival extends React.Component {
             });
           });
           
-    }
-    // <NavGuest page="moviefestivalguest" onList={true} />   
+    } 
     render() {    
         return(<div className="my-list-main"> 
-               <Nav page="browse" onList={true} />  
+               <NavGuest page="moviefestivalguest" onList={true} />  
                 <div className="list-container">
                     <div className="movie-festival-container">
                         
                 <div className="content-1">
-                            
                                 <div className="content-images"> 
                                  <div  className="banner-content" >Welcome <br/>To The<br/> Festival  </div></div>
                                 <div className="custom-headings">History</div>
@@ -236,4 +233,4 @@ class Festival extends React.Component {
             </div>)
     }
 } 
-export default Festival;
+export default FestivalGuest;
