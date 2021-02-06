@@ -134,8 +134,8 @@ class Splash extends React.Component {
                 <section className="story-container">  
 
                     <div className="story-card">
-                        <div className="story-text-container">
-                            <h2 className="story-title">Movie Festival</h2>
+                        <div className="story-text-container moveRight">
+                            <h2 className="story-title">Watch films in the Movie Festival.</h2>
                             <h3 className="story-subtitle">Upload a movie for a chance to win awards, prizes, and oppurtunities</h3>
                             <Button 
                                 fullWidth

@@ -176,16 +176,18 @@
     height: 354px;
     width: 474px; 
     margin-left: 50px;
-    margin-bottom: 110px;
 }
-
+.moveRight{
+    position: relative;
+    left: 3vw;
+    
+}
 .story-0-img {
     background-image: image-url("story-0-img");
-    height: 500px;
-    width: 640px; 
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    height: 388px; 
+    display: flex; 
+    margin-left: 0px; 
+    left: 3vw;
 }
 .story-1-gif {
     background-image: image-url("story-1-gif");
