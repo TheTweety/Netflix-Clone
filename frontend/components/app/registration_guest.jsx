@@ -113,7 +113,7 @@ class RegistrationGuest extends React.Component {
                               </div>      
                             <div className="registration-outline-form" > 
                             <h2 className="registration-login-subtitle">Payment Information</h2> 
-                                <input className={`login-input ${errorBorder}`} type="text" value={this.state.cardowner} onChange={this.updateCardOwner} placeholder="Card Owner Name"/>
+                                <input className={`login-input ${errorBorder}`} type="text" value={this.state.cardowner} onChange={this.updateCardOwner} placeholder="Card Owner"/>
                                 <input className={`login-input ${errorBorder}`}  type="text" value={this.state.cardnumber} onChange={this.updateCardNumber} placeholder="Card number" />
                                 <input className={`login-input ${errorBorder}`} type="text" value={this.state.expirydate} onChange={this.updateExpiryDate} placeholder="Expiry Date"/> 
                             </div>      
