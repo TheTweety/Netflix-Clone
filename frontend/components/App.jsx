@@ -11,7 +11,8 @@ import MyListContainer from "./app/my_list_container";
 import MovieContainer from "./app/festival_container"; 
 import MovieGuestContainer from "./app/festival_guest_container"; 
 import PricingContainer from "./app/pricing_container";
-import PricingGuestContainer from "./app/pricing_guest_container";
+import PricingGuestContainer from "./app/pricing_guest_container"; 
+import RegistrationContainer from "./app/registration_container";
 
 
 // AuthRoutes are for non-logged in users, ProtectedRoutes are for logged-in users.
@@ -29,7 +30,8 @@ const App = () => (
         <ProtectedRoute exact path="/moviefestival" component={MovieContainer} />
         <ProtectedRoute exact path="/pricing" component={PricingContainer} />
         <AuthRoute exact path="/moviefestivalGuest" component={MovieGuestContainer} />
-        <AuthRoute exact path="/pricingGuest" component={PricingGuestContainer} />
+        <AuthRoute exact path="/pricingGuest" component={PricingGuestContainer} /> 
+        <AuthRoute exact path="/register" component={RegistrationContainer} />
     </main>
 )
 

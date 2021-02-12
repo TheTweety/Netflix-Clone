@@ -87,8 +87,10 @@ class Nav extends React.Component {
                     <div className="nav-buttons-box">
                         <Link className="nav-link" to="/login">
                             <div className="nav-button unselectable-text">Sign In</div>
-                        </Link>                    
-                        <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
+                        </Link> 
+                        <Link className="nav-link" to="/register">
+                            <div className="nav-button unselectable-text">Register</div>
+                        </Link>                       
                     </div>
                 </div>
             )
@@ -104,13 +106,34 @@ class Nav extends React.Component {
 
             navRight=(
                 <div className="nav-right">
-                    <div className="nav-buttons-box">
+                    {/* <div className="nav-buttons-box">
                         <div onClick={this.handleDemo} className="nav-button unselectable-text">Demo Login</div>
+                    </div> */}
+                </div>
+            )
+            
+        } 
+        else if (page === "register") {
+            navLeft=(
+                <div className="nav-left">
+                    <Link className="logo-box" to="/">
+                        <div className="logo-big"></div>
+                    </Link>
+                </div>
+            )
+
+            navRight=(
+                <div className="nav-right">
+                    <div className="nav-buttons-box">
+                        <Link className="nav-link" to="/login">
+                            <div className="nav-button unselectable-text">Sign In</div>
+                        </Link>           
                     </div>
                 </div>
             )
             
-        } else if (page === "browse") {
+        } 
+        else if (page === "browse") {
             const { activeProfile } = this.props;
             let profiles = Object.values(this.props.userProfiles);
             let activeProfileStyle;
@@ -199,7 +222,7 @@ class Nav extends React.Component {
                                         <div className="dropdown-section">
                                             <p className="dropdown-link">Account</p>
                                             <p className="dropdown-link">Help Center</p>
-                                            <p className="dropdown-link last" onClick={this.handleLogout}>Sign out of Spaceflix</p>
+                                            <p className="dropdown-link last" onClick={this.handleLogout}>Sign out of Karawood</p>
                                         </div>
                                     </div>
                                 </div>

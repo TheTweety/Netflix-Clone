@@ -42,9 +42,9 @@ class NavGuest extends React.Component {
         let navLeft;
         let navRight;
 
-        if (page === "moviefestivalguest") { 
+       
             navClasses = "nav-fixed nav-scrolled";
- 
+
             let movieFestivalLink = (<Link to="/moviefestivalGuest" className="browse-link unselectable-text">Festival</Link>);
             let pricingLink = (<Link to="/pricingGuest" className="browse-link unselectable-text">Pricing</Link>)
 
@@ -71,7 +71,7 @@ class NavGuest extends React.Component {
                 <div className="nav-right">
                 </div>
             )
-        }
+        
 
         return (
             <nav className={`nav-main ${navClasses}`}>

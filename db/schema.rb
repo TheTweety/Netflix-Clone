@@ -69,6 +69,11 @@ ActiveRecord::Schema.define(version: 2020_07_02_005135) do
     t.string "email", null: false
     t.string "session_token", null: false
     t.string "password_digest", null: false
+    t.string "username", null: false
+    t.string "usertype", null: false
+    t.string "cardowner", null: false
+    t.string "cardnumber", null: false
+    t.string "expirydate", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

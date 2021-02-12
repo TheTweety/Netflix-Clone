@@ -17,11 +17,10 @@ ListMovie.destroy_all
 
 # USERS
 
-demouser = User.create!({email: "demouser@gmail.com", password: "password321"})
-
-user1 = User.create!({email: "user1@gmail.com", password: "password123"})
-user2 = User.create!({email: "user2@gmail.com", password: "password123"})
-user3 = User.create!({email: "user3@gmail.com", password: "password123"})
+demouser = User.create!({email: "demouser@gmail.com", username: "a0", password: "password321", cardnumber: "123", cardowner: "user", expirydate: "2/11/2021", usertype: "admin"})
+user1 = User.create!({email: "user1@gmail.com", username: "a1", password: "password123", cardnumber: "123", cardowner: "user", expirydate: "2/11/2021", usertype: "admin"})
+user2 = User.create!({email: "user2@gmail.com", username: "a2", password: "password123" , cardnumber: "123", cardowner: "user", expirydate: "2/11/2021", usertype: "admin"})
+user3 = User.create!({email: "user3@gmail.com", username: "a3", password: "password123", cardnumber: "123", cardowner: "user", expirydate: "2/11/2021", usertype: "admin"})
 
 #GENRES
 
