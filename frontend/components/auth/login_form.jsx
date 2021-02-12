@@ -66,9 +66,6 @@ class LoginForm extends React.Component {
                             <input className={`login-input ${errorBorder}`} type="password" value={this.state.password} onChange={this.updatePassword} placeholder="Password"/>
                             <input className="login-button" type="submit" value="Sign In"/>
                             {errorMessage}
-                            <div className="form-footer">
-                                <p className="form-footer-text">New to Karawood? <Link to="/register" className="form-footer-link">Sign up now.</Link></p>
-                            </div>
                         </form>
                     </div>
                 </div>
