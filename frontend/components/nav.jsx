@@ -106,9 +106,11 @@ class Nav extends React.Component {
 
             navRight=(
                 <div className="nav-right">
-                    <Link className="nav-link" to="/register">
-                            <div className="nav-button unselectable-text">Register</div>
-                    </Link>
+                    <div className="nav-buttons-box">
+                        <Link className="nav-link" to="/register">
+                                <div className="nav-button unselectable-text">Register</div>
+                        </Link>       
+                    </div> 
                 </div>
             )
             
