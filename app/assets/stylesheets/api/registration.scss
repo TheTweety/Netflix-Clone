@@ -32,3 +32,33 @@
     border: 1px solid white; 
     margin:20px;
 }
+.registrationDropdown{
+    width:100%
+}
+.registration-pass {
+    background: image-url("lock.png") no-repeat scroll 0px 9px;
+    padding-left: 35px; 
+ }
+
+.registration-user{
+    background: image-url("user.png") no-repeat scroll 0px 9px;
+    padding-left: 35px;
+}
+.registration-email {
+    background: image-url("email.png") no-repeat scroll 0px 9px;
+    padding-left: 35px;
+}
+
+.registration-cardnumber {
+    background: image-url("cardnumber.png") no-repeat scroll 0px 11px;
+    padding-left: 35px;
+}
+
+.registration-cardowner {
+    background: image-url("cardowner.png") no-repeat scroll 0px 11px;
+    padding-left: 35px;
+}
+.registration-expirydate {
+    background: image-url("expirydate.png") no-repeat scroll 0px 11px;
+    padding-left: 35px;
+}

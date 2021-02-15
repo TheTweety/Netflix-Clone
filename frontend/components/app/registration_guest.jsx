@@ -106,16 +106,20 @@ class RegistrationGuest extends React.Component {
                         <h2 className="login-title">Registration</h2> 
                             <div className="registration-outline-form" > 
                             <h2 className="registration-login-subtitle">Account Details</h2> 
-                                <input className={`login-input ${errorBorder}`} type="text" value={this.state.email} onChange={this.updateEmail} placeholder="Email Address"/>
-                                <input className={`login-input ${errorBorder}`} type="username" value={this.state.username} onChange={this.updateUserName} placeholder="User Name" />
-                                <input className={`login-input ${errorBorder}`} type="password" value={this.state.password} onChange={this.updatePassword} placeholder="Password"/>
-                                <input className={`login-input ${errorBorder}`} type="text" value={this.state.usertype} onChange={this.updateType} placeholder="Type"/>
+                                <input className={`login-input ${errorBorder} registration-email`} type="text" value={this.state.email} onChange={this.updateEmail} placeholder="Email Address"/>
+                                <input className={`login-input ${errorBorder} registration-user`} type="username" value={this.state.username} onChange={this.updateUserName} placeholder="User Name" />
+                                <input  className={`login-input ${errorBorder} registration-pass`} type="password" value={this.state.password} onChange={this.updatePassword} placeholder="Password"/> 
+                                <select className={`login-input ${errorBorder} registrationDropdown`} type="text" value={this.state.usertype} onChange={this.updateType} placeholder="Type">
+                                    <option value="volvo">Basic</option>
+                                    <option value="saab">Gold Standard</option>
+                                    <option value="opel">Director</option>
+                                </select>
                               </div>      
                             <div className="registration-outline-form" > 
                             <h2 className="registration-login-subtitle">Payment Information</h2> 
-                                <input className={`login-input ${errorBorder}`} type="text" value={this.state.cardowner} onChange={this.updateCardOwner} placeholder="Card Owner"/>
-                                <input className={`login-input ${errorBorder}`}  type="text" value={this.state.cardnumber} onChange={this.updateCardNumber} placeholder="Card number" />
-                                <input className={`login-input ${errorBorder}`} type="text" value={this.state.expirydate} onChange={this.updateExpiryDate} placeholder="Expiry Date"/> 
+                                <input className={`login-input ${errorBorder} registration-cardowner`} type="text" value={this.state.cardowner} onChange={this.updateCardOwner} placeholder="Card Owner"/>
+                                <input className={`login-input ${errorBorder} registration-cardnumber`}  type="text" value={this.state.cardnumber} onChange={this.updateCardNumber} placeholder="Card number" />
+                                <input className={`login-input ${errorBorder} registration-expirydate`} type="text" value={this.state.expirydate} onChange={this.updateExpiryDate} placeholder="Expiry Date"/> 
                             </div>      
                             <input className="registration-login-button" type="submit" value="Submit"/>
                                 {errorMessage} 
