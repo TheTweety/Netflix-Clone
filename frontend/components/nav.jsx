@@ -90,6 +90,9 @@ class Nav extends React.Component {
                         </Link> 
                         <Link className="nav-link" to="/register">
                             <div className="nav-button unselectable-text">Register</div>
+                        </Link>
+                        <Link className="nav-link" to="/pricing">
+                                <div className="nav-button unselectable-text">Pricing</div>
                         </Link>                       
                     </div>
                 </div>
@@ -109,6 +112,9 @@ class Nav extends React.Component {
                     <div className="nav-buttons-box">
                         <Link className="nav-link" to="/register">
                                 <div className="nav-button unselectable-text">Register</div>
+                        </Link>
+                        <Link className="nav-link" to="/pricing">
+                                <div className="nav-button unselectable-text">Pricing</div>
                         </Link>       
                     </div> 
                 </div>
@@ -129,12 +135,39 @@ class Nav extends React.Component {
                     <div className="nav-buttons-box">
                         <Link className="nav-link" to="/login">
                             <div className="nav-button unselectable-text">Sign In</div>
-                        </Link>           
+                        </Link>
+                        <Link className="nav-link" to="/pricing">
+                                <div className="nav-button unselectable-text">Pricing</div>
+                        </Link>                  
                     </div>
                 </div>
             )
             
         } 
+        else if (page === "pricing") {
+            navLeft=(
+                <div className="nav-left">
+                    <Link className="logo-box" to="/">
+                        <div className="logo-big"></div>
+                    </Link>
+                </div>
+            )
+
+            navRight=(
+                <div className="nav-right">
+                    <div className="nav-buttons-box">
+                        <Link className="nav-link" to="/login">
+                            <div className="nav-button unselectable-text">Sign In</div>
+                        </Link>
+                        <Link className="nav-link" to="/register">
+                                <div className="nav-button unselectable-text">Register</div>
+                        </Link>                  
+                    </div>
+                </div>
+            )
+            
+        } 
+
         else if (page === "browse") {
             const { activeProfile } = this.props;
             let profiles = Object.values(this.props.userProfiles);

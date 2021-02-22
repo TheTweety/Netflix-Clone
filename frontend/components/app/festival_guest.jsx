@@ -1,6 +1,5 @@
-import React from "react";  
-import NavGuest from "../nav_guest";    
-
+import React from "react";   
+import NavContainer from "../nav_container"; 
 class FestivalGuest extends React.Component {
 
     constructor(props) {
@@ -30,9 +29,19 @@ class FestivalGuest extends React.Component {
           });
           
     } 
+
+    
+    updateEmail(event) {
+        this.setState({
+            email: event.target.value
+        })
+    }
+
+
+
     render() {    
         return(<div className="my-list-main"> 
-               <NavGuest page="moviefestivalguest" onList="moviefestival" />  
+               <NavContainer history={this.props.history} page="splash" />
                 <div className="list-container">
                     <div className="movie-festival-container">
                         
@@ -95,7 +104,6 @@ class FestivalGuest extends React.Component {
                                         </li>  
                                     </ol> 
                                 </div> 
-                                <a href="#" className="mybutton">Submit</a>
                                 <div className="custom-headings">
                                     Awards & Prizes
                                 </div>
@@ -227,8 +235,30 @@ class FestivalGuest extends React.Component {
                                </ul>
                                     
                                 </div>
+ 
+                            <div className="custom-headings">Submission</div>
+
+                            <div className="content-3">
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>   
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>    
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
+                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
+                            </div> 
+                         
+                            <a href="#" className="mybutton">Submit</a>
                          </div>
                     </div>   
+ 
                 </div>   
             </div>)
     }

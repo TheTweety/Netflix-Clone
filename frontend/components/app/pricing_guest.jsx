@@ -6,12 +6,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader'; 
 import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/StarBorder'; 
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography'; 
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box'; 
-import NavGuest from "../nav_guest_container";     
+import Container from '@material-ui/core/Container'; 
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -147,16 +144,6 @@ export default function PricingGuestContainer() {
 
   return (
     <React.Fragment> 
-      <NavGuest page="moviefestivalguest" onList="pricing" />  
-       <Container maxWidth="sm" component="main" className={classes.heroContent}>
- 
-        <Typography variant="h5" align="center" className={classes.customPricingHeadingsInitialTitle} component="p">
-          Quickly build an effective pricing plan for these may range from month to month or per year.
-          It&apos;s built with default Material-UI components with little customization.
-        </Typography>
-      </Container>
-
-
       <Container maxWidth="md" className={classes.heroContent} component="main">
         <Grid container spacing={5} alignItems="flex-end">
           {tiers.map((tier) => (
@@ -197,29 +184,6 @@ export default function PricingGuestContainer() {
             </Grid>
           ))}
         </Grid>
-      </Container>
-      {/* Footer */}
-      <Container maxWidth="md" component="footer" className={classes.footer}>
-        <Grid container spacing={4} justify="space-evenly">
-          {footers.map((footer) => (
-            <Grid item xs={6} sm={3} key={footer.title}>
-              <Typography variant="h6" className={classes.customPricingSecondary} gutterBottom>
-                {footer.title}
-              </Typography>
-              <ul>
-                {footer.description.map((item) => (
-                  <li key={item}>
-                    <Link href="#" variant="subtitle1" className={classes.customPricingSecondary} >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </Grid>
-          ))}
-        </Grid>
-        <Box mt={5}> 
-        </Box>
       </Container> 
     </React.Fragment>
   );
