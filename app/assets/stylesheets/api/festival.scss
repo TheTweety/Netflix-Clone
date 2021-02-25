@@ -52,6 +52,29 @@
     opacity: 0.85;
 
   }
+
+  // input[type="text"],
+  // input[type="email"],
+  // input[type="password"]
+  .formfields {
+    padding: 6px;
+    height: 35px;
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 3px;
+    flex-grow: 1;
+    text-indent: 10px;
+  }
+  
+  .form-row {
+    flex-direction: row;
+    display: flex;
+  }
+  
+  .form-panel {
+    background-color:  #212529;
+  }
+
   .banner-content{
     color: white;
     font-size: 13vh;

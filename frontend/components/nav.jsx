@@ -203,13 +203,10 @@ class Nav extends React.Component {
 
             let homeLink;
             let listLink;
-            let movieFestivalLink;
-            let pricingLink; 
+            let movieFestivalLink; 
             homeLink = (<Link to="/browse" className="browse-link unselectable-text">Home</Link>)
             listLink = (<Link to="/my-list" className="browse-link unselectable-text">Favorites</Link>)
-            movieFestivalLink = (<Link to="/moviefestival" className="browse-link unselectable-text">Festival</Link>)
-            pricingLink = (<Link to="/pricing" className="browse-link unselectable-text">Pricing</Link>)
-
+            movieFestivalLink = (<Link to="/moviefestival" className="browse-link unselectable-text">Festival</Link>) 
             if (this.props.onList === "moviefestival") {
                 movieFestivalLink = (<Link to="/moviefestival" className="browse-link browse-link-active unselectable-text">Festival</Link>) 
             } 
@@ -217,9 +214,7 @@ class Nav extends React.Component {
                 listLink = (<Link to="/my-list" className="browse-link browse-link-active unselectable-text">Favorites</Link>)
             
             } 
-            else if (this.props.onList === "pricing"){
-                pricingLink = (<Link to="/pricing" className="browse-link browse-link-active unselectable-text">Pricing</Link>) 
-            }
+             
             else {
                 homeLink = (<Link to="/browse" className="browse-link browse-link-active unselectable-text">Home</Link>)
             }
@@ -233,8 +228,7 @@ class Nav extends React.Component {
                     <div className="browse-links-container">
                         {homeLink}
                         {movieFestivalLink}
-                        {listLink}
-                        {pricingLink}
+                        {listLink} 
                     </div>
                 </div>
             )

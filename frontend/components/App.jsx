@@ -12,7 +12,6 @@ import MovieContainer from "./app/festival_container";
 import MovieGuestContainer from "./app/festival_guest_container"; 
 import PricingGuestContainer from "./app/pricing_container"; 
 import RegistrationContainer from "./app/registration_container";
-import SubmissionContainer from "./app/submissions_container";
 
 
 
@@ -32,7 +31,6 @@ const App = () => (
         <AuthRoute exact path="/moviefestivalGuest" component={MovieGuestContainer} />
         <AuthRoute exact path="/pricing" component={PricingGuestContainer} /> 
         <AuthRoute exact path="/register" component={RegistrationContainer} />
-        <AuthRoute exact path="/submissions" component={SubmissionContainer} />
     </main>
 )
 

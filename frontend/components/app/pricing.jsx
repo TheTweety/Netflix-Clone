@@ -1,6 +1,6 @@
 import React from "react"; 
 import NavContainer from "../nav_container";  
-import PricingGuestContainer from "./pricing_guest_container"
+import PricingGuestContainer from "./pricing_guest_container" 
 class Pricing extends React.Component {
 
     constructor(props) {
@@ -8,9 +8,18 @@ class Pricing extends React.Component {
     }
 
     render() { 
-        return (<div>
+        return (<div className="splash-main">
+            <main className="splash-main">
             <NavContainer history={this.props.history} page="pricing" />
-            <PricingGuestContainer/> 
+                <section className="landingPricing">
+                    <div className="splash-main-content">
+                        <div className="slogan-container">
+                        <PricingGuestContainer/>
+                        </div>
+                        
+                    </div>     
+                </section>
+            </main>
         </div>)
          }
 

@@ -97,8 +97,7 @@ class Festival extends React.Component {
                                          The annual prize of usd 3500 will be given once a year to the Best Short of the Year
                                         </li>  
                                     </ol> 
-                                </div> 
-                                <a href="#" className="mybutton">Submit</a>
+                                </div>  
                                 <div className="custom-headings">
                                     Awards & Prizes
                                 </div>
@@ -230,6 +229,35 @@ class Festival extends React.Component {
                                </ul>
                                     
                                 </div>
+                                <div className="custom-headings">Submission</div> 
+                                <div className="content-3"> 
+                                    <div class="form-panel">
+                                            <div class="form-row form-name">
+                                                <input className="formfields" type="text" name="fname" placeholder="First Name"/>
+                                                <input className="formfields" type="text" name="lname" placeholder="Last Name"/>
+                                                <br/>
+                                            </div>
+                                            <div class="form-row form-password">
+                                                <input className="formfields" type="password" name="password" placeholder="Email"/>
+                                                <input className="formfields" type="password" name="cpassword" placeholder="Phone #"/>
+                                            </div>
+                                            <div class="form-row form-password">
+                                                <input className="formfields" type="password" name="password" placeholder="Title"/>
+                                                <input className="formfields" type="password" name="cpassword" placeholder="Description"/>
+                                            </div>
+                                            <div class="form-row form-password">
+                                                <input className="formfields"type="password" name="password" placeholder="Producer"/>
+                                                <input className="formfields" type="password" name="cpassword" placeholder="Director"/>
+                                            </div>
+                                            
+                                            <div class="form-row form-email">
+                                                <input className="formfields"type="email" name="email" placeholder="Upload URL"/>
+                                                <br/>
+                                            </div>
+                                        </div>  
+                                </div> 
+                            
+                                <a href="#" className="mybutton">Submit</a>
                          </div>
                     </div>   
                 </div>   

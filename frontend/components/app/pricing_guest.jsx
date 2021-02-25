@@ -42,8 +42,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'baseline',
-    marginBottom: theme.spacing(2),
-    
+    marginBottom: theme.spacing(2),  
   },
   customPricingHeadings:{
       color:'#dc1a27',
@@ -56,12 +55,12 @@ const useStyles = makeStyles((theme) => ({
     },
 
     customCard:{ 
-        boxShadow: '10px 0 10px black',
+        boxShadow: '10px 0 10px black'
     },  
 
     customPricingHeadingsInitialTitle:{ 
         color: '#D1D0CF',
-        //boxShadow: `10px 0 10px black`,
+         boxShadow: `10px 0 10px black`,
         padding: `2vw`,
     },
 
@@ -71,31 +70,19 @@ const useStyles = makeStyles((theme) => ({
       '&:hover': {
         background: '#cf1925',  
      } 
-  },
-  
-  footer: {
-    borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-   // boxShadow: `7px 0 10px black`,
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6),
-    },
-  },
+  } 
 }));
 
 const tiers = [
   {
-    title: 'Free',
+    title: 'Basic',
     price: '0',
     description: ['10 users included', '2 GB of storage', 'Help center access', 'Email support'],
     buttonText: 'Sign up for free',
     buttonVariant: 'outlined',
   },
   {
-    title: 'Pro',
+    title: 'Gold Standard',
     subheader: '',
     price: '15',
     description: [
@@ -108,7 +95,7 @@ const tiers = [
     buttonVariant: 'contained',
   },
   {
-    title: 'Enterprise',
+    title: 'Director',
     price: '30',
     description: [
       '50 users included',
@@ -119,25 +106,7 @@ const tiers = [
     buttonText: 'Contact us',
     buttonVariant: 'outlined',
   },
-];
-const footers = [
-  {
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
-  },
-  {
-    title: 'Features',
-    description: ['Cool stuff', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
-  },
-  {
-    title: 'Resources',
-    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
-  },
-  {
-    title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
-  },
-];
+]; 
 
 export default function PricingGuestContainer() {
   const classes = useStyles();

@@ -27,7 +27,21 @@ class FestivalGuest extends React.Component {
                 .slideToggle("ease-out");
             });
           });
-          
+   
+          const script = document.createElement("script"); 
+          script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js";
+          script.async = true; 
+          document.body.appendChild(script);
+
+          const script2 = document.createElement("script"); 
+          script.src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js";
+          script.async = true; 
+          document.body.appendChild(script2);
+
+          const script3 = document.createElement("script"); 
+          script.src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js";
+          script.async = true; 
+          document.body.appendChild(script3); 
     } 
 
     
@@ -36,8 +50,7 @@ class FestivalGuest extends React.Component {
             email: event.target.value
         })
     }
-
-
+ 
 
     render() {    
         return(<div className="my-list-main"> 
@@ -236,23 +249,32 @@ class FestivalGuest extends React.Component {
                                     
                                 </div>
  
-                            <div className="custom-headings">Submission</div>
-
-                            <div className="content-3">
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>   
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>    
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
-                                    <input className={`login-input  registration-email`} type="text" value="" onChange={this.updateEmail}  placeholder="Email Address"/>     
+                            <div className="custom-headings">Submission</div> 
+                            <div className="content-3"> 
+                                   <div class="form-panel">
+                                        <div class="form-row form-name">
+                                            <input className="formfields" type="text" name="fname" placeholder="First Name"/>
+                                            <input className="formfields" type="text" name="lname" placeholder="Last Name"/>
+                                            <br/>
+                                        </div>
+                                        <div class="form-row form-password">
+                                            <input className="formfields" type="password" name="password" placeholder="Email"/>
+                                            <input className="formfields" type="password" name="cpassword" placeholder="Phone #"/>
+                                        </div>
+                                        <div class="form-row form-password">
+                                            <input className="formfields" type="password" name="password" placeholder="Title"/>
+                                            <input className="formfields" type="password" name="cpassword" placeholder="Description"/>
+                                        </div>
+                                        <div class="form-row form-password">
+                                            <input className="formfields"type="password" name="password" placeholder="Producer"/>
+                                            <input className="formfields" type="password" name="cpassword" placeholder="Director"/>
+                                        </div>
+                                        
+                                        <div class="form-row form-email">
+                                            <input className="formfields"type="email" name="email" placeholder="Upload URL"/>
+                                            <br/>
+                                        </div>
+                                    </div>  
                             </div> 
                          
                             <a href="#" className="mybutton">Submit</a>
