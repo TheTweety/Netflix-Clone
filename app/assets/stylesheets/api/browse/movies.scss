@@ -181,6 +181,18 @@
     background-image: image-url("movie-add-hov");
 }
 
+
+.rent-movie-btn {
+    background-image: image-url("rent");
+    background-size: cover;
+    height: 36px;
+    width: 36px;
+}
+
+.rent-movie-btn:hover {
+    background-image: image-url("rent");
+}
+
 .sound-btn-off {
     background-image: image-url("sound-off-unhovered");
     background-size: cover;

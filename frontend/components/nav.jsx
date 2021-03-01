@@ -168,7 +168,7 @@ class Nav extends React.Component {
             
         } 
 
-        else if (page === "browse") {
+        else if (page === "browse" || page === "series") {
             const { activeProfile } = this.props;
             let profiles = Object.values(this.props.userProfiles);
             let activeProfileStyle;
@@ -201,22 +201,30 @@ class Nav extends React.Component {
 
             navClasses = "nav-fixed";
 
-            let homeLink;
+            let moviesLink;
+            let seriesLink;
             let listLink;
             let movieFestivalLink; 
-            homeLink = (<Link to="/browse" className="browse-link unselectable-text">Home</Link>)
+            moviesLink = (<Link to="/browse" className="browse-link unselectable-text">Movies</Link>)
+            seriesLink = (<Link to="/series" className="browse-link unselectable-text">Series</Link>)
             listLink = (<Link to="/my-list" className="browse-link unselectable-text">Favorites</Link>)
             movieFestivalLink = (<Link to="/moviefestival" className="browse-link unselectable-text">Festival</Link>) 
+            
             if (this.props.onList === "moviefestival") {
                 movieFestivalLink = (<Link to="/moviefestival" className="browse-link browse-link-active unselectable-text">Festival</Link>) 
             } 
+
+            else if (this.props.onList === "series"){
+                seriesLink = (<Link to="/series" className="browse-link browse-link-active unselectable-text">Series</Link>)
+            
+            }
             else if (this.props.onList === "my-list"){
                 listLink = (<Link to="/my-list" className="browse-link browse-link-active unselectable-text">Favorites</Link>)
             
             } 
              
             else {
-                homeLink = (<Link to="/browse" className="browse-link browse-link-active unselectable-text">Home</Link>)
+                moviesLink = (<Link to="/browse" className="browse-link browse-link-active unselectable-text">Movies</Link>)
             }
              
 
@@ -226,7 +234,8 @@ class Nav extends React.Component {
                         <div className="logo-small"></div>
                     </Link>
                     <div className="browse-links-container">
-                        {homeLink}
+                        {moviesLink}
+                        {seriesLink}
                         {movieFestivalLink}
                         {listLink} 
                     </div>

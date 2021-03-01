@@ -168,12 +168,13 @@ class Movie extends React.Component {
 
             let inProfileList;
             let addBtn;
+            let rentBtn;
 
             if (listMovies) inProfileList = listMovies.map(movie => movie.id).includes(details.id);
-
+            rentBtn = (<div className="rent-movie-btn"></div>);
+               
             if (inProfileList) {
                 let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === details.id)[0];
-
                 addBtn=(<div onClick={this.removeMovieFromList} data-movie-association={movieAssociation.id} className="remove-movie-btn"></div>)
             } else {
                 addBtn=(<div onClick={this.addMovieToList} data-movie-id={details.id} className="add-btn"></div>)
@@ -193,8 +194,7 @@ class Movie extends React.Component {
                     <div id={containerId}
                     className="trailer-container" 
                     onMouseMove={this.resetFadeTimer} 
-                    onMouseLeave={this.endFadeTimer}
-                    >
+                    onMouseLeave={this.endFadeTimer}>
                         <video 
                             className="trailer"
                             id={videoId}
@@ -218,6 +218,8 @@ class Movie extends React.Component {
                                     {soundButton}
                                     <div className="gap"></div>
                                     {addBtn}
+                                    <div className="gap"></div>
+                                    {rentBtn}
                                 </div>
                             </div>
                             <div className="preview-show-link">

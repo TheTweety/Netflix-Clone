@@ -3,7 +3,26 @@ import NavContainer from "../nav_container";
 class FestivalGuest extends React.Component {
 
     constructor(props) {
-        super(props);    
+        super(props) 
+
+        this.state = {
+            email:"",
+            phone:"",
+            movieTitle:"",
+            movieDescription:"",
+            producer:"",
+            director:"",
+            movieURL:"" 
+        }
+
+        this.updateEmail = this.updateEmail.bind(this);
+        this.updatePhone = this.updatePhone.bind(this);
+        this.updateMovieTitle = this.updateMovieTitle.bind(this);
+        this.updateMovieDescription = this.updateMovieDescription.bind(this);
+        this.updateProducer = this.updateProducer.bind(this);
+        this.updateDirector = this.updateDirector.bind(this);
+        this.updateMovieURL = this.updateMovieURL.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }  
     componentDidMount() { 
 
@@ -26,31 +45,56 @@ class FestivalGuest extends React.Component {
                 .children(".accordion-panel")
                 .slideToggle("ease-out");
             });
-          });
-   
-          const script = document.createElement("script"); 
-          script.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js";
-          script.async = true; 
-          document.body.appendChild(script);
-
-          const script2 = document.createElement("script"); 
-          script.src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js";
-          script.async = true; 
-          document.body.appendChild(script2);
-
-          const script3 = document.createElement("script"); 
-          script.src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js";
-          script.async = true; 
-          document.body.appendChild(script3); 
+          }); 
     } 
 
-    
     updateEmail(event) {
         this.setState({
             email: event.target.value
         })
+    } 
+
+    updatePhone(event) {
+        this.setState({
+            phone: event.target.value
+        })
+    } 
+
+    updateMovieTitle(event) {
+        this.setState({
+            movieTitle: event.target.value
+        })
+    } 
+
+
+    updateMovieDescription(event) {
+        this.setState({
+            movieDescription: event.target.value
+        })
+    } 
+
+    updateProducer(event) {
+        this.setState({
+            producer: event.target.value
+        })
+    } 
+    updateDirector(event) {
+        this.setState({
+            director: event.target.value
+        })
+    } 
+    updateMovieURL(event) {
+        this.setState({
+            movieURL: event.target.value
+        })
+    } 
+
+    handleSubmit(e) {
+        e.preventDefault();
+        
+        const submission = Object.assign({}, this.state);
+        this.props.submitSubmission(submission);
     }
- 
 
     render() {    
         return(<div className="my-list-main"> 
@@ -251,33 +295,34 @@ class FestivalGuest extends React.Component {
  
                             <div className="custom-headings">Submission</div> 
                             <div className="content-3"> 
-                                   <div class="form-panel">
-                                        <div class="form-row form-name">
+                                   <form className="form-panel" onSubmit={this.handleSubmit}>
+                                        <div className="form-row form-name">
                                             <input className="formfields" type="text" name="fname" placeholder="First Name"/>
                                             <input className="formfields" type="text" name="lname" placeholder="Last Name"/>
                                             <br/>
                                         </div>
-                                        <div class="form-row form-password">
-                                            <input className="formfields" type="password" name="password" placeholder="Email"/>
-                                            <input className="formfields" type="password" name="cpassword" placeholder="Phone #"/>
+                                        <div className="form-row form-password">
+                                            <input className="formfields" type="text" name="email" value={this.state.email} onChange={this.updateEmail}  placeholder="Email"/>
+                                            <input className="formfields" type="text" name="phone"  value={this.state.phone} onChange={this.updatePhone}  placeholder="Phone"/>
                                         </div>
-                                        <div class="form-row form-password">
-                                            <input className="formfields" type="password" name="password" placeholder="Title"/>
-                                            <input className="formfields" type="password" name="cpassword" placeholder="Description"/>
+                                        <div className="form-row form-password">
+                                            <input className="formfields" type="text" name="movieTitle"  value={this.state.movieTitle} onChange={this.updateMovieTitle}  placeholder="Movie Title"/>
+                                            <input className="formfields" type="text" name="movieDescription" value={this.state.movieDescription} onChange={this.updateMovieDescription}  placeholder="Movie Description"/>
                                         </div>
-                                        <div class="form-row form-password">
-                                            <input className="formfields"type="password" name="password" placeholder="Producer"/>
-                                            <input className="formfields" type="password" name="cpassword" placeholder="Director"/>
+                                        <div className="form-row form-password">
+                                            <input className="formfields"type="text" name="producer"  value={this.state.producer} onChange={this.updateProducer}  placeholder="Producer"/>
+                                            <input className="formfields" type="text" name="director"  value={this.state.director} onChange={this.updateDirector}  placeholder="Director"/>
                                         </div>
                                         
-                                        <div class="form-row form-email">
-                                            <input className="formfields"type="email" name="email" placeholder="Upload URL"/>
+                                        <div className="form-row form-email">
+                                            <input className="formfields"type="text" name="movieURL"  value={this.state.movieURL} onChange={this.updateMovieURL}  placeholder="Movie URL"/>
                                             <br/>
                                         </div>
-                                    </div>  
+                                        
+                                        <input className="login-button" type="submit" value="Submit"/>
+                                    </form>  
                             </div> 
                          
-                            <a href="#" className="mybutton">Submit</a>
                          </div>
                     </div>   
  

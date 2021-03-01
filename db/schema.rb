@@ -75,27 +75,17 @@ ActiveRecord::Schema.define(version: 2020_07_02_005135) do
     t.string "cardnumber", null: false
     t.string "expirydate", null: false
   end
-
-  create_table "submissions_movies", force: :cascade do |t|
-    t.string "title", null: false
-    t.integer "year", null: false
-    t.text "description", null: false
-    t.string "duration", null: false
-    t.string "maturity_rating"
-    t.string "director"
-    t.string "producer"
-    t.string "cast"
-    t.integer "genre_id"
-  end
-
+ 
   create_table "submissions", force: :cascade do |t|
     t.string "email", null: false
-    t.string "firstname", null: false
-    t.string "lastname", null: false
-    t.string "datesubmitted", null: false
-    t.string "movieId", null: false
+    t.string "phone", null: false
+    t.string "movieTitle", null: false
+    t.string "movieDescription", null: false
+    t.string "producer", null: false
+    t.string "director", null: false  
+    t.string "movieURL", null: false 
+    t.index ["email", "movieTitle"], name: "index_submissions_uniqueness", unique: true
   end
-  
-  add_foreign_key "submissions", "submissions_movies", column: "movieId"
+   
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
 end

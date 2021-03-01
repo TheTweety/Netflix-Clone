@@ -1,11 +1,29 @@
 import React from "react"; 
-import Nav from "../nav_container";   
-import NavGuest from "../nav_guest_container";    
+import Nav from "../nav_container";     
 
 class Festival extends React.Component {
 
     constructor(props) {
-        super(props);    
+        super(props) 
+
+        this.state = {
+            email:"",
+            phone:"",
+            movieTitle:"",
+            movieDescription:"",
+            producer:"",
+            director:"",
+            movieURL:"" 
+        }
+
+        this.updateEmail = this.updateEmail.bind(this);
+        this.updatePhone = this.updatePhone.bind(this);
+        this.updateMovieTitle = this.updateMovieTitle.bind(this);
+        this.updateMovieDescription = this.updateMovieDescription.bind(this);
+        this.updateProducer = this.updateProducer.bind(this);
+        this.updateDirector = this.updateDirector.bind(this);
+        this.updateMovieURL = this.updateMovieURL.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }  
     componentDidMount() { 
 
@@ -28,10 +46,57 @@ class Festival extends React.Component {
                 .children(".accordion-panel")
                 .slideToggle("ease-out");
             });
-          });
-          
+          }); 
+    } 
+
+    updateEmail(event) {
+        this.setState({
+            email: event.target.value
+        })
+    } 
+
+    updatePhone(event) {
+        this.setState({
+            phone: event.target.value
+        })
+    } 
+
+    updateMovieTitle(event) {
+        this.setState({
+            movieTitle: event.target.value
+        })
+    } 
+
+
+    updateMovieDescription(event) {
+        this.setState({
+            movieDescription: event.target.value
+        })
+    } 
+
+    updateProducer(event) {
+        this.setState({
+            producer: event.target.value
+        })
+    } 
+    updateDirector(event) {
+        this.setState({
+            director: event.target.value
+        })
+    } 
+    updateMovieURL(event) {
+        this.setState({
+            movieURL: event.target.value
+        })
+    } 
+
+    handleSubmit(e) {
+        e.preventDefault();
+        
+        const submission = Object.assign({}, this.state);
+        this.props.submitSubmission(submission);
     }
-    // <NavGuest page="moviefestivalguest" onList={true} />   
+
     render() {    
         return(<div className="my-list-main"> 
                <Nav page="browse" onList="moviefestival" />  
@@ -231,26 +296,26 @@ class Festival extends React.Component {
                                 </div>
                                 <div className="custom-headings">Submission</div> 
                                 <div className="content-3"> 
-                                    <div class="form-panel">
-                                            <div class="form-row form-name">
+                                    <div className="form-panel">
+                                            <div className="form-row form-name">
                                                 <input className="formfields" type="text" name="fname" placeholder="First Name"/>
                                                 <input className="formfields" type="text" name="lname" placeholder="Last Name"/>
                                                 <br/>
                                             </div>
-                                            <div class="form-row form-password">
+                                            <div className="form-row form-password">
                                                 <input className="formfields" type="password" name="password" placeholder="Email"/>
                                                 <input className="formfields" type="password" name="cpassword" placeholder="Phone #"/>
                                             </div>
-                                            <div class="form-row form-password">
+                                            <div className="form-row form-password">
                                                 <input className="formfields" type="password" name="password" placeholder="Title"/>
                                                 <input className="formfields" type="password" name="cpassword" placeholder="Description"/>
                                             </div>
-                                            <div class="form-row form-password">
+                                            <div className="form-row form-password">
                                                 <input className="formfields"type="password" name="password" placeholder="Producer"/>
                                                 <input className="formfields" type="password" name="cpassword" placeholder="Director"/>
                                             </div>
                                             
-                                            <div class="form-row form-email">
+                                            <div className="form-row form-email">
                                                 <input className="formfields"type="email" name="email" placeholder="Upload URL"/>
                                                 <br/>
                                             </div>

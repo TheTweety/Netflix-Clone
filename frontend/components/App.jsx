@@ -9,6 +9,7 @@ import Watch from "./app/watch";
 import ProfilesContainer from "./app/profiles_container";
 import MyListContainer from "./app/my_list_container";
 import MovieContainer from "./app/festival_container"; 
+import SeriesContainer from "./app/series_container"; 
 import MovieGuestContainer from "./app/festival_guest_container"; 
 import PricingGuestContainer from "./app/pricing_container"; 
 import RegistrationContainer from "./app/registration_container";
@@ -25,6 +26,7 @@ const App = () => (
             <ProtectedRoute path="/profiles" component={ProfilesContainer} />
             <ProtectedRoute exact path="/browse/:id/watch" component={Watch} />
             <ProtectedRoute path="/browse" component={BrowseContainer} />
+            <ProtectedRoute path="/series" component={SeriesContainer} />
         </Switch>
         <ProtectedRoute path="/my-list" component={MyListContainer} />
         <ProtectedRoute exact path="/moviefestival" component={MovieContainer} /> 
