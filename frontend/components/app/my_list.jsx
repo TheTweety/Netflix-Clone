@@ -66,6 +66,7 @@ class MyList extends React.Component {
                     <div className="no-movies-text">You haven't added any movies yet!</div>
                     <Link className="no-movies-link" to="/browse">Back to Browse</Link>
                 </div>
+                
             )
         }
 
@@ -76,6 +77,14 @@ class MyList extends React.Component {
                     <div className="list-header unselectable-text">My List</div>
                     <div className="list-rows-container">
                         {listRows}
+                    </div>
+                    <br/><br/><br/>
+                    <div className="list-header unselectable-text">Rentals</div>
+                    <div className="list-rows-container">
+                        <div className="no-movies-text-box">
+                            <div className="no-movies-text">You haven't added any movies rented yet!</div>
+                            <Link className="no-movies-link" to="/browse">Back to Browse</Link>
+                        </div>
                     </div>
                 </div>
                 <Footer />
