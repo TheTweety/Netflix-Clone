@@ -8,9 +8,8 @@
 /* MOVIE-PREVIEW DEFAULT ====================================== */
 
 .movie-preview-default {
-    height: 168px;
-    width: 300px;
-
+    height: 300px;
+    width: 500px;
     overflow: hidden;
 }
 
@@ -20,13 +19,13 @@
 
 @keyframes zoom {
     from {
-        height: 168px;
-        width: 300px;
+        height: 300px;
+        width: 500px;
     }
 
     to {
-        height: 280px;
-        width: 500px;
+        height: 350px;
+        width: 550px;
         /* height: 130%;
         width: auto; */
     }
@@ -35,8 +34,8 @@
 .thumbnail {
     position: absolute;
 
-    height: 168px;
-    width: 300px;
+    height: 300px;
+    width: 500px;
     visibility: visible;
     cursor: pointer;
 
@@ -45,8 +44,8 @@
 
 .playing .thumbnail {
     transition: 1000ms ease all;
-    height: 280px;
-    width: 500px;
+    height: 350px;
+    width: 550px;
     opacity: 0;
     visibility: hidden;
 

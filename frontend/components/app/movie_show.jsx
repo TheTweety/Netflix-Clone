@@ -94,7 +94,7 @@ class MovieShow extends React.Component {
                         <div className="show-buttons-container">
                             <Link to={{ pathname: `/browse/${details.id}/watch`, movieDetails: this.props.details}} className="show-play-button">
                                 <div className="show-play-icon"></div>
-                                <p className="show-btn-text">Play</p>
+                                <p className="show-btn-text">Rent</p>
                             </Link>
                             {addButton}
                         </div>
