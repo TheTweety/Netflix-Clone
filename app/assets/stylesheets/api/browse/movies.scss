@@ -13,9 +13,9 @@
     overflow: hidden;
 }
 
-.movie-preview-default:hover {
-    animation: 1000ms ease 0s 1 normal both running zoom;
-}
+// .movie-preview-default:hover {
+//     animation: 1000ms ease 0s 1 normal both running zoom;
+// }
 
 @keyframes zoom {
     from {
@@ -49,9 +49,9 @@
     opacity: 0;
     visibility: hidden;
 
-    transition: height 1s, width 1s, opacity .5s, visibility 0s;
-    transition-property: height, width, opacity, visibility;
-    transition-delay: 0s, 0s, 750ms, 1.25s;
+    // transition: height 1s, width 1s, opacity .5s, visibility 0s;
+    // transition-property: height, width, opacity, visibility;
+    // transition-delay: 0s, 0s, 750ms, 1.25s;
 }
 
 .trailer-container {
@@ -61,8 +61,8 @@
 
 .trailer {
     position: absolute;
-    height: 168px;
-    width: 300px;
+    height: 350px;
+    width: 550px;
 
     /* height: 130%;
     width: auto; */
@@ -73,8 +73,8 @@
 
 .playing .trailer-container .trailer {
     transition: 1000ms ease all;
-    height: 280px;
-    width: 500px;
+    height: 350px;
+    width: 550px;
 
 }
 
@@ -90,8 +90,7 @@
 }
 
 .trigger-fade .trailer-info {
-    cursor: none;
-
+    cursor: none; 
     opacity: 0;
     transition: 2000ms ease;
     transition-property: opacity;
@@ -247,89 +246,89 @@
     filter: brightness(75%);
 }
 
-/* MOVIE-PREVIEW ACTIVE =================================== */
+// /* MOVIE-PREVIEW ACTIVE =================================== */
 
 
-.movie-preview-active {
-    height: 162px;
-    width: 294px;
-    border: 3px solid white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+// .movie-preview-active {
+//     height: 350px;
+//     width: 550px;
+//     border: 3px solid white;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     cursor: pointer;
 
-    position: relative;
-}
+//     position: relative;
+// }
 
-.play-container {
-    position: absolute;
-    height: inherit;
-    width: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-}
+// .play-container {
+//     position: absolute;
+//     height: inherit;
+//     width: inherit;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     text-decoration: none;
+// }
 
-.preview-play-button {
-    background-image: image-url("play-icon");
-    background-size: cover;
+// .preview-play-button {
+//     background-image: image-url("play-icon");
+//     background-size: cover;
 
-    opacity: 0.9;
-    visibility: hidden;
-    height: 96px;
-    width: 96px;
-    text-decoration: none;
-}
+//     opacity: 0.9;
+//     visibility: hidden;
+//     height: 96px;
+//     width: 96px;
+//     text-decoration: none;
+// }
 
-.preview-play-button:hover {
-    opacity: 0.7;
-}
+// .preview-play-button:hover {
+//     opacity: 0.7;
+// }
 
-.preview-play-small {
-    background-image: image-url("play-icon");
-    background-size: cover;
+// .preview-play-small {
+//     background-image: image-url("play-icon");
+//     background-size: cover;
 
-    height: 48px;
-    width: 48px;
-    text-decoration: none;
-}
+//     height: 48px;
+//     width: 48px;
+//     text-decoration: none;
+// }
 
-.preview-play-small:hover {
-    opacity: 0.7;
-}
+// .preview-play-small:hover {
+//     opacity: 0.7;
+// }
 
-.chev-down {
-    background-image: image-url("chev-down-white");
-    background-size: cover;
-    position: absolute;
-    height: 16px;
-    width: 55px;
+// .chev-down {
+//     background-image: image-url("chev-down-white");
+//     background-size: cover;
+//     position: absolute;
+//     height: 16px;
+//     width: 55px;
 
-    visibility: hidden;
-    opacity: 0;
-    margin-top: 80px;
-}
+//     visibility: hidden;
+//     opacity: 0;
+//     margin-top: 80px;
+// }
 
-/* MOVIE-PREVIEW INACTIVE ===================================== */
+// /* MOVIE-PREVIEW INACTIVE ===================================== */
 
-.movie-preview-inactive:hover .chev-down {
-    transition: 500ms ease all;
-    transform: translate(0, 20px);
-    opacity: 1;
-}
+// .movie-preview-inactive:hover .chev-down {
+//     transition: 500ms ease all;
+//     transform: translate(0, 20px);
+//     opacity: 1;
+// }
 
-.movie-preview-inactive {
-    height: 168px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
+// .movie-preview-inactive {
+//     height: 168px;
+//     width: 300px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     cursor: pointer;
+// }
 
-.playing .hov-button {
-    visibility: visible;
-}
+// .playing .hov-button {
+//     visibility: visible;
+// }
