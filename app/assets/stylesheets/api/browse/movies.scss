@@ -2,7 +2,6 @@
 
 .movie-main {
     flex-shrink: 0;
-    margin-right: 5px;
 }
 
 /* MOVIE-PREVIEW DEFAULT ====================================== */
@@ -44,8 +43,8 @@
 
 .playing .thumbnail {
     transition: 1000ms ease all;
-    height: 350px;
-    width: 550px;
+    height: 550px;
+    width: 650px;
     opacity: 0;
     visibility: hidden;
 
@@ -61,7 +60,7 @@
 
 .trailer {
     position: absolute;
-    height: 350px;
+   // height: 350px;
     width: 550px;
 
     /* height: 130%;
@@ -73,7 +72,7 @@
 
 .playing .trailer-container .trailer {
     transition: 1000ms ease all;
-    height: 350px;
+  //  height: 350px;
     width: 550px;
 
 }
@@ -252,7 +251,7 @@
 .movie-preview-active {
     height: 350px;
     width: 550px;
-    border: 3px solid white;
+  //  border: 3px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
