@@ -5,7 +5,7 @@
     color: white;
     justify-content: space-between;
 }
-.movie-festival-container{ 
+.movie-festival-container{
     width: 45vw;
     margin-left: 110px;
     height: fit-content;
@@ -21,7 +21,7 @@
     text-shadow: 6px 2px #333;
 }
 .accordion {
-    background-color: #212529; 
+    background-color: #212529;
     font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
     color: #D1D0CF;
     cursor: pointer;
@@ -32,11 +32,11 @@
     outline: none;
     transition: 0.4s;
     font-size: 16px;
-    column-count: 2; 
+    column-count: 2;
   }
-  
+
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  
+
   /* Style the accordion panel. Note: hidden by default */
   .panel {
     padding: 18px 18px;
@@ -65,12 +65,12 @@
     flex-grow: 1;
     text-indent: 10px;
   }
-  
+
   .form-row {
     flex-direction: row;
     display: flex;
   }
-  
+
   .form-panel {
     background-color:  #212529;
   }
@@ -81,14 +81,17 @@
     font-family: Franklin Gothic Medium,Franklin Gothic,ITC Franklin Gothic,Arial,sans-serif;
     text-shadow: 10px 8px #333;
   }
+  .banner-content-centered{
+    text-align: center;
+  }
   .mybutton:hover {
-    background: #cf1925; 
+    background: #cf1925;
     color: white;
     transition: color 0.3s ease;
     display: inline-block;
-    vertical-align: middle; 
+    vertical-align: middle;
     transform: perspective(7px) translateZ(0);
-    box-shadow: 0 0 1px black; 
+    box-shadow: 0 0 1px black;
     border-radius: 5px;
 }
 
@@ -109,7 +112,26 @@
     text-shadow: 2px 2px #333;
     border-radius: 5px;
 }
-.content-1{ 
+
+.mybutton-rent {
+    background-color:  #dc1a27;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 23px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    left: 48%;
+    font-family: Franklin Gothic Medium,Franklin Gothic,ITC Franklin Gothic,Arial,sans-serif;
+    text-shadow: 2px 2px #333;
+    border-radius: 5px;
+}
+
+.content-1{
     width: 80vw;
     height: fit-content;
     background-color: #212529;
@@ -123,7 +145,7 @@
     /* border-radius: 0px; */
     box-shadow: 30px 0 20px 0 black;
 }
-.rules { 
+.rules {
     list-style: decimal!important;
     font-size: 16px!important;
     margin: 0px 0px 31px 15px!important;
@@ -137,11 +159,20 @@
     margin: 23px;
     font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
-
 .content-3 {
     padding: 5px;
     align-content: center;
     text-align: justify;
+    line-height: 45px;
+    font-size: 16px;
+    margin: 23px;
+    font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.content-4 {
+    padding: 5px;
+    align-content: center;
+    text-align: center;
     line-height: 45px;
     font-size: 16px;
     margin: 23px;
@@ -153,7 +184,7 @@
     width: 100vw;
     min-height: 90vh;
     position: relative;
-    background: #141414; 
+    background: #141414;
 }
 
 .list-header {
@@ -183,18 +214,18 @@
 .no-movies-link:hover {
     opacity: 0.8;
 }
- 
+
   .accordion-item:hover{
-      background-color: #dc1a27;  
+      background-color: #dc1a27;
       border-radius: 10px;
-  } 
+  }
   .accordion-item:focus {
     background-color: #dc1a27;
 }
   .column-break {
     break-after: column;
-  } 
- 
+  }
+
   .accordion-thumb {
     margin: 0;
     padding: 5px;
@@ -202,7 +233,7 @@
     font-weight: normal;
     text-indent: 20px;
   }
-  
+
   .accordion-panel {
     margin: -10px;
     display: none;

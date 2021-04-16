@@ -45,11 +45,11 @@ class MovieShow extends React.Component {
         const listMovies = this.props.profileList.movies;
         const listMovieAssociations = this.props.profileList.movieAssociations;
         const maturity_rating = this.props.details.maturity_rating ? this.props.details.maturity_rating : this.props.details.maturityRating;
-        
+
         const trailer = this.props.details.trailer ? this.props.details.trailer : window.backupTrailerURL;
 
 
-        const logo = this.props.details.logo ? <img src={this.props.details.logo} className="show-logo"/> 
+        const logo = this.props.details.logo ? <img src={this.props.details.logo} className="show-logo"/>
             : <div className="logo-backup">{details.title.toUpperCase()}</div>
 
         const muteButton = muted ? <div className="show-mute-btn-off" onClick={this.toggleMute} ></div>
@@ -57,10 +57,10 @@ class MovieShow extends React.Component {
 
         let genreDiv;
         if (!this.props.hideGenre) genreDiv=(<div className="show-text"><span className="show-section">Genre: </span>{genre}</div>)
-        
+
         let addButton;
         const inProfileList = listMovies.map(movie => movie.id).includes(details.id);
-        
+
         if (inProfileList) {
             let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === details.id)[0];
 
@@ -75,10 +75,24 @@ class MovieShow extends React.Component {
                 <div onClick={this.addMovieToList} data-movie-id={details.id} className="show-list-button">
                     <div className="show-list-icon"></div>
                     <p className="show-btn-text">My List</p>
-                </div>        
+                </div>
             )
         }
 
+        let isRented = false;
+        let addLnk;
+        if (isRented){
+          addLnk = <Link to={{ pathname: `/browse/${details.id}/watch`, movieDetails: this.props.details}} className="show-play-button">
+                      <div className="show-play-icon"></div>
+                      <p className="show-btn-text">Rent</p>
+                  </Link>
+        }
+        else{
+          addLnk = <Link to={{ pathname: `/browse/${details.id}/rent`, movieDetails: this.props.details}} className="show-play-button">
+                      <div className="show-play-icon"></div>
+                      <p className="show-btn-text">Rent</p>
+                  </Link>
+        }
 
         return(
             <div className="movie-show-main">
@@ -92,10 +106,7 @@ class MovieShow extends React.Component {
                         </div>
                         <div className="show-description">{details.description}</div>
                         <div className="show-buttons-container">
-                            <Link to={{ pathname: `/browse/${details.id}/watch`, movieDetails: this.props.details}} className="show-play-button">
-                                <div className="show-play-icon"></div>
-                                <p className="show-btn-text">Rent</p>
-                            </Link>
+                            {addLnk}
                             {addButton}
                         </div>
                         <div className="show-text"><span className="show-section">Director: </span>{details.director}</div>
@@ -108,13 +119,13 @@ class MovieShow extends React.Component {
                     <div className="show-trailer-btns">
                         <div className="show-close-btn" onClick={this.props.close}></div>
                         {muteButton}
-                    </div>                        
-                    <video 
+                    </div>
+                    <video
                         className="show-trailer"
                         src={trailer}
                         autoPlay
                         muted={muted}
-                        loop 
+                        loop
                     />
                 </section>
             </div>

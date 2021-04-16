@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class Movie extends React.Component {
     constructor(props) {
         super(props)
-        
+
         this.state = {
             muted: true
         }
@@ -98,7 +98,7 @@ class Movie extends React.Component {
     incrementFade() {
         if (!this.props.activeRow) {
             this.fadeTime++;
-            
+
             if (this.fadeTime >= 3) {
                 this.fadeInfo();
                 this.fadeTime = 0;
@@ -140,7 +140,7 @@ class Movie extends React.Component {
         const container = document.getElementById(containerId)
         if (container) {
             container.classList.add("trigger-fade")
-        } 
+        }
     }
 
     render() {
@@ -155,7 +155,7 @@ class Movie extends React.Component {
 
         const soundButton = muted ? (
             <div className="sound-btn-off" onClick={this.toggleSound}></div>
-        ) 
+        )
         : (
             <div className="sound-btn-on" onClick={this.toggleSound}></div>
         );
@@ -172,7 +172,7 @@ class Movie extends React.Component {
 
             if (listMovies) inProfileList = listMovies.map(movie => movie.id).includes(details.id);
             rentBtn = (<div className="rent-movie-btn"></div>);
-               
+
             if (inProfileList) {
                 let movieAssociation = listMovieAssociations.filter(assoc => assoc.movie_id === details.id)[0];
                 addBtn=(<div onClick={this.removeMovieFromList} data-movie-association={movieAssociation.id} className="remove-movie-btn"></div>)
@@ -185,17 +185,17 @@ class Movie extends React.Component {
 
             moviePreview = (
                 <div className="movie-preview-default" onClick={this.setActiveMovie} onMouseEnter={this.togglePlayOn} onMouseLeave={this.togglePlayOff} >
-                    <img 
-                        src={thumbnail} 
-                        className="thumbnail" 
-                        onMouseEnter={this.startFadeTimer} 
+                    <img
+                        src={thumbnail}
+                        className="thumbnail"
+                        onMouseEnter={this.startFadeTimer}
                     />
 
                     <div id={containerId}
-                    className="trailer-container" 
-                    onMouseMove={this.resetFadeTimer} 
+                    className="trailer-container"
+                    onMouseMove={this.resetFadeTimer}
                     onMouseLeave={this.endFadeTimer}>
-                        <video 
+                        <video
                             className="trailer"
                             id={videoId}
                             src={trailer}

@@ -10,10 +10,10 @@
 
 class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
-    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :session_token, presence: true, uniqueness: true
-    validates :password_digest, presence: true 
-    
+    validates :password_digest, presence: true
+
     validates :password, length: {minimum: 6, allow_nil: true}
     after_initialize :ensure_session_token
     attr_reader :password,:username,:cardowner,:usertype
@@ -22,10 +22,10 @@ class User < ApplicationRecord
     has_many :profiles,
         foreign_key: :user_id,
         class_name: :Profile
-    
 
-    def self.find_by_credentials(email, password) 
-        user = User.find_by(email: email)
+
+    def self.find_by_credentials(username, password)
+        user = User.find_by(username: username)
         return nil if user.nil?
         user.is_password?(password) ? user : nil
     end

@@ -51,11 +51,11 @@ class Feature extends React.Component {
         const title = featuredMovie.title.toUpperCase();
         const description = featuredMovie.description;
         const rating = featuredMovie.maturity_rating ? featuredMovie.maturity_rating : featuredMovie.maturityRating;
-        
+
         let muteButton;
-        muted ? muteButton=(<div className="feature-mute-off" onClick={this.toggleMute}></div>) 
+        muted ? muteButton=(<div className="feature-mute-off" onClick={this.toggleMute}></div>)
          : muteButton=(<div className="feature-mute-on" onClick={this.toggleMute}></div>)
-                
+
         const listMovies = this.props.profileList.movies;
         let addBtn;
         let inProfileList;
@@ -85,11 +85,11 @@ class Feature extends React.Component {
         return(
             <div className="feature-main">
                 <div className="feature-movie-container">
-                    <video 
+                    <video
                         className="feature-movie"
-                        src={trailer} 
-                        autoPlay 
-                        loop 
+                        src={trailer}
+                        autoPlay
+                        loop
                         muted={muted}
                     />
                 </div>
