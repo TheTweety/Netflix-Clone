@@ -7,10 +7,14 @@ class Rent extends React.Component {
         super(props)
     }
     componentDidMount() {
-
-        $(function() {
-
-          });
+      const labels = document.querySelectorAll('.label');
+      labels.forEach(label => {
+        const chars = label.textContent.split('');
+        label.innerHTML = '';
+        chars.forEach(char => {
+          label.innerHTML += `<span>${char === ' ' ? '&nbsp' : char}</span>`;
+        });
+      })
     }
 
 
@@ -23,27 +27,47 @@ class Rent extends React.Component {
 
     render() {
         return(<div className="my-list-main">
-               <Nav page="browse" onList="moviefestival" />
+               <Nav page="browse" onList="browse" />
                 <div className="list-container">
                     <div className="movie-festival-container">
 
-                <div className="content-1">
-
-                                <div  className="banner-content banner-content-centered" >Rent </div>
-                                <div className="custom-headings banner-content-centered">Movie Details</div>
-
-                                <div className="content-4">
-                                    movie details aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                                </div>
-
-                              <div className="custom-headings banner-content-centered">Rent Details</div>
-                              <div className="content-4">
-                                      <ul>
-                                        <li> 2 days - $5 </li>
-                                        <li> 5 days - $10 </li>
-                                        <li> 10 days - $10 </li>
-                                        <li> 15 days - $10 </li>
-                                      </ul>
+                <div className="content-6">
+                  <div className="banner-content banner-content-centered" >Rent </div>
+                      <div className="custom-headings banner-content-centered">Movie Details</div>
+                      <div className="content-4">
+                          movie details aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa <br/>
+                          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa <br/>
+                          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                      </div>
+                      <div className="content-5">
+                            <div className="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+                                  <h2 id="bulgy-radios-label"></h2>
+                                      <label>
+                                      <input type="radio" name="options" />
+                                      <span className="radio"></span>
+                                      <span className="label">1 Day - $5</span>
+                                      </label>
+                                      <label>
+                                      <input type="radio" name="options" />
+                                      <span className="radio"></span>
+                                      <span className="label">2 Days - $10</span>
+                                      </label>
+                                      <label>
+                                      <input type="radio" name="options" />
+                                      <span className="radio"></span>
+                                      <span className="label">3 Days - $15</span>
+                                      </label>
+                                      <label>
+                                      <input type="radio" name="options" />
+                                      <span className="radio"></span>
+                                      <span className="label">4 Days - $20</span>
+                                      </label>
+                                      <label>
+                                      <input type="radio" name="options" />
+                                      <span className="radio"></span>
+                                      <span className="label">5 Days - $25</span>
+                                      </label>
+                                  </div>
                               </div>
 
                                 <div className="custom-headings banner-content-centered">Payment Details</div>

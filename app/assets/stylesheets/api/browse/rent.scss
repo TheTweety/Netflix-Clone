@@ -1,0 +1,156 @@
+html { box-sizing: border-box; height: 100%; font-size: 10px; } *, *::before, *::after { box-sizing: inherit; }
+
+h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0 3rem;
+}
+
+.content-4 {
+    padding: 5px;
+    align-content: center;
+    text-align: center;
+    line-height: 45px;
+    font-size: 28px;
+    margin: 23px;
+    font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.content-5 {
+    padding: 5px;
+    align-content: center;
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+    margin: 23px;
+    font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
+    position:relative;
+    left:30%;
+}
+
+
+.content-6{
+    width: 40vw;
+    height: fit-content;
+    background-color: #212529;
+    /* box-shadow: 0 14px 28px rgb(0 0 0 / 50%), 0 10px 10px rgb(150 150 150 / 25%); */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    color: #D1D0CF;
+    padding: 15px;
+    font-family: Roboto,sans-serif,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    /* border-radius: 0px; */
+    box-shadow: 30px 0 20px 0 black;
+    left: 50%;
+    position: relative;
+}
+
+.bulgy-radios {
+  width: 30rem;
+  background: #212529;
+  padding: 3rem 0 3rem 5rem;
+  border-radius: 1rem;
+
+  label {
+    display: block;
+    position: relative;
+    height: 1em;
+    padding-left: 4rem;
+    margin-bottom: 1.75rem;
+    cursor: pointer;
+    font-size: 2.5rem;
+    user-select: none;
+    color: #555;
+    letter-spacing: 1px;
+    &:hover input:not(:checked) ~ .radio {
+      opacity: 0.8;
+    }
+  }
+  .label {
+    display: flex;
+    align-items: center;
+    padding-right: 3rem;
+    span {
+      line-height: 1em;
+    }
+  }
+  input {
+    position: absolute;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    left: -2000px;
+
+    &:checked {
+      ~ .radio {
+        background-color: #dc1a27;
+        transition: background .3s;
+        &::after {
+          opacity: 1;
+        }
+      }
+      ~ .label {
+        color: #dc1a27;
+        span {
+          animation: bulge .5s forwards;
+        }
+
+        //adjust this if label is going to be more than 20 chars
+        @for $i from 1 to 20 {
+          span:nth-child(#{$i}) { animation-delay: $i * 0.025s; }
+        }
+      }
+    }
+  }
+}
+
+.mybutton-rent {
+    background-color:  #dc1a27;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 23px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    left: 46%;
+    font-family: Franklin Gothic Medium,Franklin Gothic,ITC Franklin Gothic,Arial,sans-serif;
+    text-shadow: 2px 2px #333;
+    border-radius: 5px;
+}
+
+.radio {
+  position: absolute;
+  top: 0.2rem;
+  left: 0;
+  height: 2.5rem;
+  width: 2.5rem;
+  background: #fff;
+  border-radius: 50%;
+  &::after {
+    content: '';
+    position: absolute;
+    opacity: 0;
+    top: .5rem;
+    left: .5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #fff;
+  }
+}
+@keyframes bulge {
+  50% {
+    transform: rotate(4deg);
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  100% {
+    transform: rotate(0);
+    font-size: 1em;
+    font-weight: bold;
+  }
+}
