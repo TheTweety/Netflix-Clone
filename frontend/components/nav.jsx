@@ -258,9 +258,10 @@ class Nav extends React.Component {
                                     </div>
                                     <div className="dropdown-main-bottom">
                                         <div className="dropdown-section">
-                                            <p className="dropdown-link">Account</p>
-                                            <p className="dropdown-link">Help Center</p>
-                                            <p className="dropdown-link last" onClick={this.handleLogout}>Sign out of Karawood</p>
+                                            <p className="manage-link">Account</p>
+                                            <Link to="/help" className="manage-link">Help Centre</Link>
+                                           
+                                            <p className="manage-link last" onClick={this.handleLogout}>Sign out of Karawood</p>
                                         </div>
                                     </div>
                                 </div>
