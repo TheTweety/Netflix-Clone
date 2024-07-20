@@ -9,7 +9,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "babel-loader": "^8.1.0",
-    "fomantic-ui": "^2.8.7",
+    "fomantic-ui": "^2.9.3",
     "lodash": "^4.17.19",
     "react": "^16.13.1",
     "react-bootstrap-validation": "^0.1.11",
