@@ -13,7 +13,7 @@
     "lodash": "^4.17.19",
     "react": "^16.13.1",
     "react-bootstrap-validation": "^0.1.11",
-    "react-cool-form": "0.0.114",
+    "react-cool-form": "0.4.1",
     "react-dom": "^16.13.1",
     "react-key-index": "^0.1.1",
     "react-pricing-table": "^0.3.0",
