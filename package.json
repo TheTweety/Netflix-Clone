@@ -9,7 +9,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "babel-loader": "^8.1.0",
-    "fomantic-ui": "^2.8.7",
+    "fomantic-ui": "^2.9.3",
     "lodash": "^4.17.19",
     "react": "^16.13.1",
     "react-bootstrap-validation": "^0.1.11",
@@ -24,7 +24,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^4.0.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
